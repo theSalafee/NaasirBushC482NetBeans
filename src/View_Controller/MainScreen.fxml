@@ -1,11 +1,194 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.MainScreenController">
-    
+<AnchorPane id="AnchorPane" maxHeight="550.0" maxWidth="1280.0" minHeight="550.0" minWidth="1280.0" prefHeight="550.0" prefWidth="1280.0" style="-fx-background-color: e1f5fe;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.MainScreenController">
+   <children>
+      <AnchorPane layoutY="-2.0" prefHeight="61.0" prefWidth="1280.0" style="-fx-background-color: #1565c0;">
+         <children>
+            <Label layoutX="14.0" layoutY="18.0" text="IMS - Inventory Management System" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
+               </effect>
+            </Label>
+            <Label layoutX="1069.0" layoutY="17.0" text="Sakeenah Designs" textFill="WHITE">
+               <font>
+                  <Font name="Cochin" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
+               </effect>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="11.0" layoutY="101.0" prefHeight="365.0" prefWidth="610.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10px;">
+         <children>
+            <AnchorPane layoutX="4.0" layoutY="19.0" prefHeight="52.0" prefWidth="603.0" style="-fx-background-color: #1565c0; -fx-background-radius: 5px;" />
+            <Label layoutX="14.0" layoutY="31.0" text="Parts" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
+               </effect>
+            </Label>
+            <Button contentDisplay="RIGHT" layoutX="305.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Search">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow color="#0000004c" />
+               </effect>
+            </Button>
+            <TextField layoutX="399.0" layoutY="27.0" prefHeight="27.0" prefWidth="200.0" style="-fx-background-radius: 5px;">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+            <Button layoutX="519.0" layoutY="310.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Delete">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="429.0" layoutY="311.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Modify">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect>
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="359.0" layoutY="311.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Add">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect>
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TableView layoutX="10.0" layoutY="85.0" prefHeight="217.0" prefWidth="592.0">
+              <columns>
+                <TableColumn prefWidth="63.0" text="Part ID" />
+                <TableColumn prefWidth="165.0" text="Part Name" />
+                  <TableColumn prefWidth="141.0" text="Inventory" />
+                  <TableColumn prefWidth="222.0" text="Price Per Unit" />
+              </columns>
+            </TableView>
+         </children>
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="659.0" layoutY="101.0" prefHeight="365.0" prefWidth="610.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10px;" AnchorPane.topAnchor="100.0">
+         <children>
+            <Button layoutX="521.0" layoutY="312.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Delete">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="431.0" layoutY="313.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Modify">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect>
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="361.0" layoutY="313.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Add">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect>
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <AnchorPane layoutX="4.0" layoutY="18.0" prefHeight="52.0" prefWidth="603.0" style="-fx-background-color: #1565c0; -fx-background-radius: 5px;" />
+            <Label layoutX="14.0" layoutY="30.0" text="Products" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
+               </effect>
+            </Label>
+            <Button contentDisplay="RIGHT" layoutX="305.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Search">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow color="#0000004c" />
+               </effect>
+            </Button>
+            <TextField layoutX="399.0" layoutY="26.0" prefHeight="27.0" prefWidth="200.0" style="-fx-background-radius: 5px;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TableView layoutX="10.0" layoutY="84.0" prefHeight="217.0" prefWidth="592.0">
+               <columns>
+                  <TableColumn prefWidth="85.0" text="Product ID" />
+                  <TableColumn prefWidth="304.0" text="Product Name" />
+                  <TableColumn prefWidth="103.0" text="Inventory" />
+                  <TableColumn prefWidth="99.0" text="Price Per Unit" />
+               </columns>
+            </TableView>
+         </children>
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </AnchorPane>
+      <Label layoutX="202.0" layoutY="583.0" />
+      <AnchorPane layoutX="1056.0" layoutY="548.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button layoutX="1207.0" layoutY="490.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff;" text="Exit">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </Button>
+   </children>
 </AnchorPane>
