@@ -46,7 +46,7 @@
                   <DropShadow height="10.0" radius="4.5" width="10.0" />
                </effect>
             </Label>
-            <Button contentDisplay="RIGHT" layoutX="305.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Search">
+            <Button id="searchBtn" fx:id="searchBtn" contentDisplay="RIGHT" layoutX="305.0" layoutY="28.0" mnemonicParsing="false" onAction="#searchHandler" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Search">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
@@ -57,11 +57,11 @@
                   <DropShadow color="#0000004c" />
                </effect>
             </Button>
-            <TextField layoutX="399.0" layoutY="27.0" prefHeight="27.0" prefWidth="200.0" style="-fx-background-radius: 5px;">
+            <TextField fx:id="searchPart" layoutX="399.0" layoutY="27.0" prefHeight="27.0" prefWidth="200.0" style="-fx-background-radius: 5px;">
                <font>
                   <Font size="18.0" />
                </font></TextField>
-            <Button layoutX="519.0" layoutY="310.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Delete">
+            <Button fx:id="deletePartBtn" layoutX="519.0" layoutY="310.0" mnemonicParsing="false" onAction="#deletePartHandler" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Delete">
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect>
@@ -72,7 +72,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="429.0" layoutY="311.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Modify">
+            <Button fx:id="modifyPartBtn" layoutX="429.0" layoutY="311.0" mnemonicParsing="false" onAction="#modifyPartHandler" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Modify">
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect>
@@ -83,7 +83,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="359.0" layoutY="311.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Add">
+            <Button fx:id="addPartBtn" layoutX="359.0" layoutY="311.0" mnemonicParsing="false" onAction="#addPartHandler" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Add">
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect>
@@ -94,12 +94,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TableView layoutX="10.0" layoutY="85.0" prefHeight="217.0" prefWidth="592.0">
+            <TableView fx:id="partsTable" layoutX="10.0" layoutY="85.0" prefHeight="217.0" prefWidth="592.0">
               <columns>
-                <TableColumn prefWidth="63.0" text="Part ID" />
-                <TableColumn prefWidth="165.0" text="Part Name" />
-                  <TableColumn prefWidth="141.0" text="Inventory" />
-                  <TableColumn prefWidth="222.0" text="Price Per Unit" />
+                <TableColumn fx:id="partID" prefWidth="63.0" text="Part ID" />
+                <TableColumn fx:id="partName" prefWidth="165.0" text="Part Name" />
+                  <TableColumn fx:id="partInventory" prefWidth="141.0" text="Inventory" />
+                  <TableColumn fx:id="partCost" prefWidth="222.0" text="Price Per Unit" />
               </columns>
             </TableView>
          </children>
@@ -109,7 +109,7 @@
       </AnchorPane>
       <AnchorPane layoutX="659.0" layoutY="101.0" prefHeight="365.0" prefWidth="610.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10px;" AnchorPane.topAnchor="100.0">
          <children>
-            <Button layoutX="521.0" layoutY="312.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Delete">
+            <Button fx:id="deleteProduct" layoutX="521.0" layoutY="312.0" mnemonicParsing="false" onAction="#deleteProductHandler" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Delete">
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect>
@@ -120,7 +120,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="431.0" layoutY="313.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Modify">
+            <Button fx:id="modifyProductBtn" layoutX="431.0" layoutY="313.0" mnemonicParsing="false" onAction="#modifyProductHandler" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Modify">
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect>
@@ -131,7 +131,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="361.0" layoutY="313.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Add">
+            <Button fx:id="addProductBtn" layoutX="361.0" layoutY="313.0" mnemonicParsing="false" onAction="#addProductHandler" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Add">
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect>
@@ -151,7 +151,7 @@
                   <DropShadow height="10.0" radius="4.5" width="10.0" />
                </effect>
             </Label>
-            <Button contentDisplay="RIGHT" layoutX="305.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Search">
+            <Button fx:id="productSearchBtn" contentDisplay="RIGHT" layoutX="305.0" layoutY="27.0" mnemonicParsing="false" onAction="#searchHandler" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Search">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
@@ -162,7 +162,7 @@
                   <DropShadow color="#0000004c" />
                </effect>
             </Button>
-            <TextField layoutX="399.0" layoutY="26.0" prefHeight="27.0" prefWidth="200.0" style="-fx-background-radius: 5px;">
+            <TextField fx:id="searchProduct" layoutX="399.0" layoutY="26.0" prefHeight="27.0" prefWidth="200.0" style="-fx-background-radius: 5px;">
                <font>
                   <Font size="18.0" />
                </font>

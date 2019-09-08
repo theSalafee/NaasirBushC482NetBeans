@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="575.0" style="-fx-background-color: e1f5fe;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.AddPartController">
+   <children>
+      <AnchorPane layoutX="50.0" layoutY="84.0" prefHeight="475.0" prefWidth="475.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10px;">
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </AnchorPane>
+      <AnchorPane prefHeight="57.0" prefWidth="575.0" style="-fx-background-color: #1565c0;">
+         <children>
+            <Label layoutX="18.0" layoutY="7.0" text="Add Part" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="36.0" />
+               </font>
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect>
+            </Label>
+            <RadioButton id="ourtsourcedPartBtn" fx:id="outsourcedBtn" layoutX="436.0" layoutY="19.0" mnemonicParsing="false" onAction="#outsourcedBtnHandler" text="Outsourced Part" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </RadioButton>
+            <RadioButton id="inhousePartBtn" fx:id="inHouseBtn" layoutX="272.0" layoutY="20.0" mnemonicParsing="false" onAction="#inHouseBtnHandler" text="In-House Part" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </AnchorPane>
+      <Label layoutX="127.0" layoutY="134.0" text="ID">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="127.0" layoutY="193.0" text="Name">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="127.0" layoutY="253.0" text="Inventory">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="127.0" layoutY="314.0" text="Price">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="127.0" layoutY="375.0" text="Min.">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="124.0" layoutY="435.0" text="Company Name">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="cancelBtn" layoutX="473.0" layoutY="572.0" mnemonicParsing="false" onAction="#cancelHandler" style="-fx-background-color: #c3fdff; -fx-background-radius: 5px;" text="Cancel">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </Button>
+      <Button fx:id="savePartBtn" layoutX="390.0" layoutY="572.0" mnemonicParsing="false" onAction="#savePartHandler" style="-fx-background-color: #c3fdff; -fx-background-color:hover: #ffffff;-fx-background-radius: 5px;" text="Save">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </Button>
+      <TextField fx:id="addPartID" layoutX="270.0" layoutY="128.0">
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </TextField>
+      <TextField fx:id="addPartName" layoutX="270.0" layoutY="187.0">
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </TextField>
+      <TextField fx:id="addPartinventory" layoutX="270.0" layoutY="247.0">
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </TextField>
+      <TextField fx:id="addPartPrice" layoutX="270.0" layoutY="308.0">
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </TextField>
+      <TextField fx:id="addCompanyName" layoutX="271.0" layoutY="431.0">
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </TextField>
+      <TextField fx:id="addPartMin" layoutX="168.0" layoutY="370.0" prefHeight="27.0" prefWidth="45.0">
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </TextField>
+      <Label layoutX="272.0" layoutY="374.0" text="Max.">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="addPartMax" layoutX="316.0" layoutY="369.0" prefHeight="27.0" prefWidth="45.0">
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </TextField>
+      <Label layoutX="124.0" layoutY="489.0" text="Machine ID">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="addPartMachinID" layoutX="271.0" layoutY="485.0">
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </TextField>
+   </children>
+</AnchorPane>
