@@ -52,6 +52,7 @@ public class AddPartController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        // testing my git commits
     }    
 
     @FXML
