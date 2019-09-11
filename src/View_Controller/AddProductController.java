@@ -7,7 +7,9 @@ package View_Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -15,6 +17,19 @@ import javafx.fxml.Initializable;
  * @author naasirbush
  */
 public class AddProductController implements Initializable {
+
+    @FXML
+    private TextField addPartID;
+    @FXML
+    private TextField addPartName;
+    @FXML
+    private TextField addPartinventory;
+    @FXML
+    private TextField addPartPrice;
+    @FXML
+    private TextField addPartMin;
+    @FXML
+    private TextField addPartMax;
 
     /**
      * Initializes the controller class.
