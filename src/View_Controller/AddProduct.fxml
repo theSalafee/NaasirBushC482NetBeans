@@ -93,7 +93,7 @@
       </AnchorPane>
       <AnchorPane layoutX="26.0" layoutY="350.0" prefHeight="324.0" prefWidth="922.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10px;">
          <children>
-            <TableView layoutX="14.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0" style="-fx-background-radius: 10px;">
+            <TableView layoutX="14.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="Part Id" />
                 <TableColumn prefWidth="172.0" text="Part Name" />
@@ -109,7 +109,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <TableView layoutX="482.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0" style="-fx-background-radius: 10px;">
+            <TableView layoutX="482.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0">
                <columns>
                   <TableColumn prefWidth="82.0" text="Part Id" />
                   <TableColumn prefWidth="175.0" text="Part Name" />
