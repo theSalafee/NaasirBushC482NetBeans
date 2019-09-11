@@ -107,13 +107,26 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    private void modifyProductHandler(ActionEvent event) {
+    private void modifyProductHandler(ActionEvent event) throws IOException {
         
+        Parent modifyProductParent = FXMLLoader.load(getClass().getResource("/View_Controller/ModifyProduct.fxml"));
+        Scene modifyProductScene = new Scene(modifyProductParent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.hide();
+        app_stage.setScene(modifyProductScene);
+        app_stage.show();
+    }    
     
-    }
 
     @FXML
-    private void addProductHandler(ActionEvent event) {
+    private void addProductHandler(ActionEvent event) throws IOException {
+        
+        Parent addProductParent = FXMLLoader.load(getClass().getResource("/View_Controller/AddProduct.fxml"));
+        Scene addProductScene = new Scene(addProductParent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.hide();
+        app_stage.setScene(addProductScene);
+        app_stage.show();
     }
     
 }
