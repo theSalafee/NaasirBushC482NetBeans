@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: e1f5fe;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="View_Controller.AddProductController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: e1f5fe;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.AddProductController">
    <children>
       <AnchorPane prefHeight="57.0" prefWidth="1000.0" style="-fx-background-color: #1565c0;">
          <children>
@@ -125,7 +124,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="731.0" layoutY="261.0" mnemonicParsing="false" text="Cancel">
+            <Button fx:id="cancelBtn" layoutX="731.0" layoutY="261.0" mnemonicParsing="false" onAction="#cancelHandler" text="Cancel">
                <font>
                   <Font size="18.0" />
                </font>
