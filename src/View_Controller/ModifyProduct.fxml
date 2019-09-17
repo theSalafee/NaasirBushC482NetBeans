@@ -25,27 +25,27 @@
       </AnchorPane>
       <AnchorPane layoutX="160.0" layoutY="139.0" prefHeight="200.0" prefWidth="645.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10px;">
          <children>
-            <Label layoutX="76.0" layoutY="41.0" text="ID">
+            <Label fx:id="modifyProductIdLabel" layoutX="76.0" layoutY="41.0" text="ID">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="310.0" layoutY="41.0" text="Name">
+            <Label fx:id="modifyProdNameLabel" layoutX="310.0" layoutY="41.0" text="Name">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="73.0" layoutY="91.0" text="Inventory">
+            <Label fx:id="modifyProdInventoryLabel" layoutX="73.0" layoutY="91.0" text="Inventory">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="320.0" layoutY="89.0" text="Price">
+            <Label fx:id="modifyProdPriceLabel" layoutX="320.0" layoutY="89.0" text="Price">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="74.0" layoutY="137.0" text="Min.">
+            <Label fx:id="modifyProdMinLabel" layoutX="74.0" layoutY="137.0" text="Min.">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
@@ -75,7 +75,7 @@
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect>
             </TextField>
-            <Label layoutX="321.0" layoutY="135.0" text="Max.">
+            <Label fx:id="modifyProdMaxLabel" layoutX="321.0" layoutY="135.0" text="Max.">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
@@ -103,7 +103,7 @@
                   <DropShadow height="10.0" radius="4.5" width="10.0" />
                </effect>
             </TableView>
-            <Button layoutX="377.0" layoutY="261.0" mnemonicParsing="false" text="Add">
+            <Button fx:id="addProduct" layoutX="377.0" layoutY="261.0" mnemonicParsing="false" onAction="#addProductHandler" text="Add">
                <font>
                   <Font size="18.0" />
                </font>
@@ -119,17 +119,17 @@
                   <DropShadow height="10.0" radius="4.5" width="10.0" />
                </effect>
             </TableView>
-            <Button layoutX="823.0" layoutY="262.0" mnemonicParsing="false" text="Delete">
+            <Button fx:id="deleteProductBtn" layoutX="823.0" layoutY="262.0" mnemonicParsing="false" onAction="#deleteProductHandler" text="Delete">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="cancelBtn" layoutX="731.0" layoutY="261.0" mnemonicParsing="false" onAction="#cancelHandler" text="Cancel">
+            <Button fx:id="cancelBtn" layoutX="731.0" layoutY="261.0" mnemonicParsing="false" onAction="#cancelProductHandler" text="Cancel">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="656.0" layoutY="262.0" mnemonicParsing="false" text="Save">
+            <Button layoutX="656.0" layoutY="262.0" mnemonicParsing="false" onAction="#saveProductHandler" text="Save">
                <font>
                   <Font size="18.0" />
                </font>
@@ -139,8 +139,8 @@
             <DropShadow height="10.0" radius="4.5" width="10.0" />
          </effect>
       </AnchorPane>
-      <TextField layoutX="779.0" layoutY="89.0" />
-      <Label layoutX="712.0" layoutY="94.0" text="Search">
+      <TextField fx:id="productSearch" layoutX="779.0" layoutY="89.0" />
+      <Label fx:id="searchProductLabel" layoutX="712.0" layoutY="94.0" text="Search">
          <font>
             <Font size="18.0" />
          </font>

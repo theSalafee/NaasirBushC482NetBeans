@@ -8,37 +8,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="575.0" style="-fx-background-color: e1f5fe;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="View_Controller.ModifyPartController">
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="575.0" style="-fx-background-color: e1f5fe;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.ModifyPartController">
    <children>
       <AnchorPane layoutX="50.0" layoutY="82.0" prefHeight="475.0" prefWidth="475.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10px;">
          <children>
-            <Label layoutX="76.0" layoutY="45.0" text="ID">
+            <Label fx:id="modifyPartIdLabel" layoutX="76.0" layoutY="45.0" text="ID">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="76.0" layoutY="104.0" text="Name">
+            <Label fx:id="modifyPartNameLabel" layoutX="76.0" layoutY="104.0" text="Name">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="76.0" layoutY="164.0" text="Inventory">
+            <Label fx:id="modifyPartInventoryLabel" layoutX="76.0" layoutY="164.0" text="Inventory">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="76.0" layoutY="225.0" text="Price">
+            <Label fx:id="modifyPartPriceLabel" layoutX="76.0" layoutY="225.0" text="Price">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="76.0" layoutY="286.0" text="Min.">
+            <Label fx:id="modifyPartMinLabel" layoutX="76.0" layoutY="286.0" text="Min.">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="73.0" layoutY="346.0" text="Company Name">
+            <Label fx:id="modifyPartCompLabel" layoutX="73.0" layoutY="346.0" text="Company Name">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
@@ -73,7 +72,7 @@
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect>
             </TextField>
-            <Label layoutX="221.0" layoutY="285.0" text="Max.">
+            <Label fx:id="modifyPartMaxLabel" layoutX="221.0" layoutY="285.0" text="Max.">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
@@ -83,7 +82,7 @@
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect>
             </TextField>
-            <Label layoutX="73.0" layoutY="400.0" text="Machine ID">
+            <Label fx:id="modifyPartMachineIdlabel" layoutX="73.0" layoutY="400.0" text="Machine ID">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>

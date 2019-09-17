@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -25,21 +26,38 @@ import javafx.stage.Stage;
  * @author naasirbush
  */
 public class AddProductController implements Initializable {
-
-    @FXML
-    private TextField addPartID;
-    @FXML
-    private TextField addPartName;
-    @FXML
-    private TextField addPartinventory;
-    @FXML
-    private TextField addPartPrice;
-    @FXML
-    private TextField addPartMin;
-    @FXML
-    private TextField addPartMax;
     @FXML
     private Button cancelBtn;
+    @FXML
+    private Label addProdIDLabel;
+    @FXML
+    private Label addProdNameLabel;
+    @FXML
+    private Label addProdInventoryLabel;
+    @FXML
+    private Label addProdPriceLabel;
+    @FXML
+    private Label addProdMinLabel;
+    @FXML
+    private TextField addProductID;
+    @FXML
+    private TextField addProductName;
+    @FXML
+    private TextField addProductInventory;
+    @FXML
+    private TextField addProductPrice;
+    @FXML
+    private TextField addProductMin;
+    @FXML
+    private Label addProdMaxLabel;
+    @FXML
+    private TextField addProductMax;
+    @FXML
+    private Button addProductBtn;
+    @FXML
+    private Button delectBtn;
+    @FXML
+    private Button saveBtn;
 
     /**
      * Initializes the controller class.

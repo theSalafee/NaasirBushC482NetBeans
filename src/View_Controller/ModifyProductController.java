@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -27,19 +28,39 @@ import javafx.stage.Stage;
 public class ModifyProductController implements Initializable {
 
     @FXML
-    private TextField addPartID;
-    @FXML
-    private TextField addPartName;
-    @FXML
-    private TextField addPartinventory;
-    @FXML
     private TextField addPartPrice;
     @FXML
-    private TextField addPartMin;
-    @FXML
-    private TextField addPartMax;
-    @FXML
     private Button cancelBtn;
+    @FXML
+    private Label modifyProductIdLabel;
+    @FXML
+    private Label modifyProdNameLabel;
+    @FXML
+    private Label modifyProdInventoryLabel;
+    @FXML
+    private Label modifyProdPriceLabel;
+    @FXML
+    private Label modifyProdMinLabel;
+    @FXML
+    private TextField modifyProductID;
+    @FXML
+    private TextField modifyProductName;
+    @FXML
+    private TextField modifyProductInventory;
+    @FXML
+    private TextField modifyProductMin;
+    @FXML
+    private Label modifyProdMaxLabel;
+    @FXML
+    private TextField modifyProductMax;
+    @FXML
+    private Button addProduct;
+    @FXML
+    private Button deleteProductBtn;
+    @FXML
+    private TextField productSearch;
+    @FXML
+    private Label searchProductLabel;
 
     /**
      * Initializes the controller class.
@@ -50,7 +71,6 @@ public class ModifyProductController implements Initializable {
         
     } 
     
-    @FXML
     private void cancelHandler(ActionEvent event) throws IOException {
         
         Parent cancelModifyProductParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
@@ -59,6 +79,22 @@ public class ModifyProductController implements Initializable {
         app_stage.hide();
         app_stage.setScene(cancelModifyProductScene);
         app_stage.show();
+    }
+
+    @FXML
+    private void addProductHandler(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteProductHandler(ActionEvent event) {
+    }
+
+    @FXML
+    private void cancelProductHandler(ActionEvent event) {
+    }
+
+    @FXML
+    private void saveProductHandler(ActionEvent event) {
     }
     
     

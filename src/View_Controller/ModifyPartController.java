@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -51,6 +52,22 @@ public class ModifyPartController implements Initializable {
     private Button cancelBtn;
     @FXML
     private Button savePartBtn;
+    @FXML
+    private Label modifyPartIdLabel;
+    @FXML
+    private Label modifyPartNameLabel;
+    @FXML
+    private Label modifyPartInventoryLabel;
+    @FXML
+    private Label modifyPartPriceLabel;
+    @FXML
+    private Label modifyPartMinLabel;
+    @FXML
+    private Label modifyPartCompLabel;
+    @FXML
+    private Label modifyPartMaxLabel;
+    @FXML
+    private Label modifyPartMachineIdlabel;
 
     /**
      * Initializes the controller class.

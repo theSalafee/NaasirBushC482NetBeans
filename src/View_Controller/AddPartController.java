@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -51,6 +52,22 @@ public class AddPartController implements Initializable {
     private TextField addPartMax;
     @FXML
     private TextField addPartMachinID;
+    @FXML
+    private Label addPartIDLabel;
+    @FXML
+    private Label addPartNameLabel;
+    @FXML
+    private Label addPartInventoryLabel;
+    @FXML
+    private Label addPartPriceLabel;
+    @FXML
+    private Label addPartMInLabel;
+    @FXML
+    private Label addPartCompNameLabel;
+    @FXML
+    private Label addPartMaxLabel;
+    @FXML
+    private Label addPartMachineIdLabel;
 
     /**
      * Initializes the controller class.

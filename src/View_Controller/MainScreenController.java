@@ -62,6 +62,8 @@ public class MainScreenController implements Initializable {
     @FXML
     private TextField searchProduct;
     private Object FXMLoader;
+    @FXML
+    private Button exitBtn;
 
     /**
      * Initializes the controller class.
@@ -127,6 +129,10 @@ public class MainScreenController implements Initializable {
         app_stage.hide();
         app_stage.setScene(addProductScene);
         app_stage.show();
+    }
+
+    @FXML
+    private void exitHandler(ActionEvent event) {
     }
     
 }

@@ -182,7 +182,7 @@
       </AnchorPane>
       <Label layoutX="202.0" layoutY="583.0" />
       <AnchorPane layoutX="1056.0" layoutY="548.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button layoutX="1207.0" layoutY="490.0" mnemonicParsing="false" style="-fx-background-color: #c3fdff;" text="Exit">
+      <Button fx:id="exitBtn" layoutX="1207.0" layoutY="490.0" mnemonicParsing="false" onAction="#exitHandler" style="-fx-background-color: #c3fdff;" text="Exit">
          <font>
             <Font name="Arial" size="18.0" />
          </font>
