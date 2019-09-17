@@ -99,7 +99,7 @@
                 <TableColumn fx:id="partID" prefWidth="63.0" text="Part ID" />
                 <TableColumn fx:id="partName" prefWidth="165.0" text="Part Name" />
                   <TableColumn fx:id="partInventory" prefWidth="141.0" text="Inventory" />
-                  <TableColumn fx:id="partCost" prefWidth="222.0" text="Price Per Unit" />
+                  <TableColumn fx:id="partPricePerUnit" prefWidth="222.0" text="Price Per Unit" />
               </columns>
             </TableView>
          </children>
@@ -169,10 +169,10 @@
             </TextField>
             <TableView fx:id="productsTable" layoutX="10.0" layoutY="84.0" prefHeight="217.0" prefWidth="592.0">
                <columns>
-                  <TableColumn prefWidth="85.0" text="Product ID" />
-                  <TableColumn prefWidth="304.0" text="Product Name" />
-                  <TableColumn prefWidth="103.0" text="Inventory" />
-                  <TableColumn prefWidth="99.0" text="Price Per Unit" />
+                  <TableColumn fx:id="productID" prefWidth="85.0" text="Product ID" />
+                  <TableColumn fx:id="productName" prefWidth="304.0" text="Product Name" />
+                  <TableColumn fx:id="productInventory" prefWidth="103.0" text="Inventory" />
+                  <TableColumn fx:id="productPricePerUnit" prefWidth="99.0" text="Price Per Unit" />
                </columns>
             </TableView>
          </children>

@@ -94,10 +94,10 @@
          <children>
             <TableView fx:id="addProdTableView" layoutX="14.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0">
                <columns>
-                  <TableColumn prefWidth="75.0" text="Part Id" />
-                  <TableColumn prefWidth="172.0" text="Part Name" />
-                  <TableColumn prefWidth="84.0" text="Inventory " />
-                  <TableColumn prefWidth="90.0" text="Price" />
+                  <TableColumn fx:id="productID" prefWidth="75.0" text="Product ID" />
+                  <TableColumn fx:id="productName" prefWidth="172.0" text="Product Name" />
+                  <TableColumn fx:id="productInventory" prefWidth="84.0" text="Inventory " />
+                  <TableColumn fx:id="productPricePerUnit" prefWidth="90.0" text="Price" />
                </columns>
                <effect>
                   <DropShadow height="10.0" radius="4.5" width="10.0" />
@@ -110,8 +110,8 @@
             </Button>
             <TableView fx:id="deleteProdTableView" layoutX="482.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0">
                <columns>
-                  <TableColumn prefWidth="82.0" text="Part Id" />
-                  <TableColumn prefWidth="175.0" text="Part Name" />
+                  <TableColumn prefWidth="82.0" text="Product ID" />
+                  <TableColumn prefWidth="175.0" text="Product Name" />
                   <TableColumn prefWidth="81.0" text="Inventory " />
                   <TableColumn prefWidth="82.0" text="Price" />
                </columns>

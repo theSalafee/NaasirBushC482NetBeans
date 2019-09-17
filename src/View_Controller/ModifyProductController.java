@@ -17,6 +17,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -61,6 +63,20 @@ public class ModifyProductController implements Initializable {
     private TextField productSearch;
     @FXML
     private Label searchProductLabel;
+    @FXML
+    private TableView<?> addProdTableView;
+    @FXML
+    private TableColumn<?, ?> productID;
+    @FXML
+    private TableColumn<?, ?> productName;
+    @FXML
+    private TableColumn<?, ?> productInventory;
+    @FXML
+    private TableColumn<?, ?> productPricePerUnit;
+    @FXML
+    private TableView<?> deleteProdTableView;
+    @FXML
+    private Button saveProdBtn;
 
     /**
      * Initializes the controller class.

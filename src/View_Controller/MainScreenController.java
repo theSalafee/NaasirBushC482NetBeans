@@ -50,8 +50,6 @@ public class MainScreenController implements Initializable {
     @FXML
     private TableColumn<?, ?> partInventory;
     @FXML
-    private TableColumn<?, ?> partCost;
-    @FXML
     private Button deleteProduct;
     @FXML
     private Button modifyProductBtn;
@@ -64,6 +62,18 @@ public class MainScreenController implements Initializable {
     private Object FXMLoader;
     @FXML
     private Button exitBtn;
+    @FXML
+    private TableColumn<?, ?> partPricePerUnit;
+    @FXML
+    private TableView<?> productsTable;
+    @FXML
+    private TableColumn<?, ?> productID;
+    @FXML
+    private TableColumn<?, ?> productName;
+    @FXML
+    private TableColumn<?, ?> productInventory;
+    @FXML
+    private TableColumn<?, ?> productPricePerUnit;
 
     /**
      * Initializes the controller class.
