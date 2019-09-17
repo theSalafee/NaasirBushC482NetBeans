@@ -92,10 +92,10 @@
       </AnchorPane>
       <AnchorPane layoutX="26.0" layoutY="350.0" prefHeight="324.0" prefWidth="922.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10px;">
          <children>
-            <TableView layoutX="14.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0">
+            <TableView fx:id="addProductTableView" layoutX="14.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Part Id" />
-                <TableColumn prefWidth="172.0" text="Part Name" />
+                <TableColumn prefWidth="75.0" text="Product Id" />
+                <TableColumn prefWidth="172.0" text="Product Name" />
                   <TableColumn prefWidth="84.0" text="Inventory " />
                   <TableColumn prefWidth="90.0" text="Price" />
               </columns>
@@ -103,15 +103,15 @@
                   <DropShadow height="10.0" radius="4.5" width="10.0" />
                </effect>
             </TableView>
-            <Button fx:id="addProductBtn" layoutX="377.0" layoutY="261.0" mnemonicParsing="false" text="Add">
+            <Button fx:id="addProductBtn" layoutX="377.0" layoutY="261.0" mnemonicParsing="false" onAction="#addHandler" text="Add">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <TableView layoutX="482.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0">
+            <TableView fx:id="deleteProdTableView" layoutX="482.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0">
                <columns>
-                  <TableColumn prefWidth="82.0" text="Part Id" />
-                  <TableColumn prefWidth="175.0" text="Part Name" />
+                  <TableColumn prefWidth="82.0" text="Product Id" />
+                  <TableColumn prefWidth="175.0" text="Product Name" />
                   <TableColumn prefWidth="81.0" text="Inventory " />
                   <TableColumn prefWidth="82.0" text="Price" />
                </columns>
@@ -119,7 +119,7 @@
                   <DropShadow height="10.0" radius="4.5" width="10.0" />
                </effect>
             </TableView>
-            <Button fx:id="delectBtn" layoutX="823.0" layoutY="262.0" mnemonicParsing="false" text="Delete">
+            <Button fx:id="delectBtn" layoutX="823.0" layoutY="262.0" mnemonicParsing="false" onAction="#deleteHandler" text="Delete">
                <font>
                   <Font size="18.0" />
                </font>
@@ -129,7 +129,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="saveBtn" layoutX="656.0" layoutY="262.0" mnemonicParsing="false" text="Save">
+            <Button fx:id="saveBtn" layoutX="656.0" layoutY="262.0" mnemonicParsing="false" onAction="#saveHandler" text="Save">
                <font>
                   <Font size="18.0" />
                </font>
