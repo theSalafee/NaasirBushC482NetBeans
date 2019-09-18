@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package View_Controller;
+import naasirbushc482.NaasirBushC482;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +23,8 @@ import javafx.scene.control.TextField;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 ///
 
@@ -143,6 +147,17 @@ public class MainScreenController implements Initializable {
 
     @FXML
     private void exitHandler(ActionEvent event) {
-    }
-    
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Quit?");
+        alert.setHeaderText("Are you sure you want to quit?");
+        alert.setContentText("Data will not be saved.");
+
+//        Optional<ButtonType> result = alert.showAndWait();
+//        if (result.get() == ButtonType.OK){
+//            // ... user chose OK
+//            mainApp.primaryStage.close();
+//            NaasirBushC482.primaryStage.close();
+//    }
+//    
+}
 }

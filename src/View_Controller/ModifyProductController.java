@@ -56,10 +56,6 @@ public class ModifyProductController implements Initializable {
     @FXML
     private TextField modifyProductMax;
     @FXML
-    private Button addProduct;
-    @FXML
-    private Button deleteProductBtn;
-    @FXML
     private TextField productSearch;
     @FXML
     private Label searchProductLabel;
@@ -76,7 +72,11 @@ public class ModifyProductController implements Initializable {
     @FXML
     private TableView<?> deleteProdTableView;
     @FXML
-    private Button saveProdBtn;
+    private Button addProductBtn;
+    @FXML
+    private Button deleteBtn;
+    @FXML
+    private Button saveBtn;
 
     /**
      * Initializes the controller class.
@@ -87,14 +87,16 @@ public class ModifyProductController implements Initializable {
         
     } 
     
-    private void cancelHandler(ActionEvent event) throws IOException {
+    @FXML
+    private void cancelProductHandler(ActionEvent event) throws IOException {
         
-        Parent cancelModifyProductParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
-        Scene cancelModifyProductScene = new Scene(cancelModifyProductParent);
+        Parent cancelProductParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
+        Scene cancelProductScene = new Scene(cancelProductParent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.hide();
-        app_stage.setScene(cancelModifyProductScene);
+        app_stage.setScene(cancelProductScene);
         app_stage.show();
+        
     }
 
     @FXML
@@ -103,10 +105,6 @@ public class ModifyProductController implements Initializable {
 
     @FXML
     private void deleteProductHandler(ActionEvent event) {
-    }
-
-    @FXML
-    private void cancelProductHandler(ActionEvent event) {
     }
 
     @FXML

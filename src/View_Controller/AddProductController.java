@@ -84,8 +84,8 @@ public class AddProductController implements Initializable {
     @FXML
     private void cancelHandler(ActionEvent event) throws IOException {
         
-        Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
-        Scene cancelPartScene = new Scene(cancelPartParent);
+        Parent cancelProductParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
+        Scene cancelPartScene = new Scene(cancelProductParent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.hide();
         app_stage.setScene(cancelPartScene);
