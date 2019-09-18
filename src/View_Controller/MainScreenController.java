@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 package View_Controller;
-import naasirbushc482.NaasirBushC482;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,7 +22,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 ///
 
@@ -34,6 +31,9 @@ import javafx.stage.Stage;
  * @author naasirbush
  */
 public class MainScreenController implements Initializable {
+    
+    Stage stage;
+    Parent scene;
 
     @FXML
     private Button searchBtn;
@@ -98,23 +98,33 @@ public class MainScreenController implements Initializable {
     @FXML
     private void modifyPartHandler(ActionEvent event) throws IOException {
         
-        Parent modifyPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/ModifyPart.fxml"));
-        Scene modifyPartScene = new Scene(modifyPartParent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.hide();
-        app_stage.setScene(modifyPartScene);
-        app_stage.show();
+          stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+          scene = FXMLLoader.load(getClass().getResource("/View_Controller/ModifyPart.fxml"));
+          stage.setScene(new Scene(scene));
+          stage.show();
+        
+//        Parent modifyPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/ModifyPart.fxml"));
+//        Scene modifyPartScene = new Scene(modifyPartParent);
+//        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        app_stage.hide();
+//        app_stage.setScene(modifyPartScene);
+//        app_stage.show();
     }
 
     @FXML
     private void addPartHandler(ActionEvent event) throws IOException {
         
-        Parent addPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/AddPart.fxml"));
-        Scene addPartScene = new Scene(addPartParent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.hide();
-        app_stage.setScene(addPartScene);
-        app_stage.show();
+          stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+          scene = FXMLLoader.load(getClass().getResource("/View_Controller/AddPart.fxml"));
+          stage.setScene(new Scene(scene));
+          stage.show();
+          
+//        Parent addPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/AddPart.fxml"));
+//        Scene addPartScene = new Scene(addPartParent);
+//        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        app_stage.hide();
+//        app_stage.setScene(addPartScene);
+//        app_stage.show();
         
     }
 
@@ -125,39 +135,42 @@ public class MainScreenController implements Initializable {
     @FXML
     private void modifyProductHandler(ActionEvent event) throws IOException {
         
-        Parent modifyProductParent = FXMLLoader.load(getClass().getResource("/View_Controller/ModifyProduct.fxml"));
-        Scene modifyProductScene = new Scene(modifyProductParent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.hide();
-        app_stage.setScene(modifyProductScene);
-        app_stage.show();
+          stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+          scene = FXMLLoader.load(getClass().getResource("/View_Controller/ModifyProduct.fxml"));
+          stage.setScene(new Scene(scene));
+          stage.show();
+        
+//        Parent modifyProductParent = FXMLLoader.load(getClass().getResource("/View_Controller/ModifyProduct.fxml"));
+//        Scene modifyProductScene = new Scene(modifyProductParent);
+//        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        app_stage.hide();
+//        app_stage.setScene(modifyProductScene);
+//        app_stage.show();
     }    
     
 
     @FXML
     private void addProductHandler(ActionEvent event) throws IOException {
         
-        Parent addProductParent = FXMLLoader.load(getClass().getResource("/View_Controller/AddProduct.fxml"));
-        Scene addProductScene = new Scene(addProductParent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.hide();
-        app_stage.setScene(addProductScene);
-        app_stage.show();
+          stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+          scene = FXMLLoader.load(getClass().getResource("/View_Controller/AddProduct.fxml"));
+          stage.setScene(new Scene(scene));
+          stage.show();
+        
+//        Parent addProductParent = FXMLLoader.load(getClass().getResource("/View_Controller/AddProduct.fxml"));
+//        Scene addProductScene = new Scene(addProductParent);
+//        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        app_stage.hide();
+//        app_stage.setScene(addProductScene);
+//        app_stage.show();
     }
 
     @FXML
-    private void exitHandler(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Quit?");
-        alert.setHeaderText("Are you sure you want to quit?");
-        alert.setContentText("Data will not be saved.");
-
-//        Optional<ButtonType> result = alert.showAndWait();
-//        if (result.get() == ButtonType.OK){
-//            // ... user chose OK
-//            mainApp.primaryStage.close();
-//            NaasirBushC482.primaryStage.close();
-//    }
-//    
-}
+    private void exitHandler(ActionEvent event) throws IOException {
+//        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//        alert.setTitle("Quit?");
+//        alert.setHeaderText("Are you sure you want to quit?");
+//        alert.setContentText("Data will not be saved.");
+        System.exit(0);
+    }
 }
