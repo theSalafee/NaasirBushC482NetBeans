@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -29,8 +30,11 @@
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="partToggle" />
+               </toggleGroup>
             </RadioButton>
-            <RadioButton id="inhousePartBtn" fx:id="inHouseBtn" layoutX="272.0" layoutY="20.0" mnemonicParsing="false" onAction="#inHouseBtnHandler" text="In-House Part" textFill="WHITE">
+            <RadioButton id="inhousePartBtn" fx:id="inHouseBtn" layoutX="272.0" layoutY="20.0" mnemonicParsing="false" onAction="#inHouseBtnHandler" text="In-House Part" textFill="WHITE" toggleGroup="$partToggle">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>

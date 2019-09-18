@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 /**
@@ -68,6 +69,8 @@ public class ModifyPartController implements Initializable {
     private Label modifyPartMaxLabel;
     @FXML
     private Label modifyPartMachineIdlabel;
+    @FXML
+    private ToggleGroup partToggle;
 
     /**
      * Initializes the controller class.
