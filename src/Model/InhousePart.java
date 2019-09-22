@@ -18,6 +18,7 @@ public class InhousePart extends Part {
     // Constructor
     public InhousePart(int id, double price, int stock, int min, int max, String name, int machineID) {
         super(id, price, stock, min, max, name);
+        
         this.machineID = machineID;
     }
 

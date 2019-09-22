@@ -66,10 +66,10 @@ public class Inventory {
     // Products Methods //
     /////////////////////
 
-//    public static void addProduct(Model.Product product) {
-//
-//        return;
-//    }
+    public static void addProduct(Model.Product product) {
+
+         allProducts.add(product);;
+    }
 
 //    public static lookupProduct(int productID) {
 //
