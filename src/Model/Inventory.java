@@ -80,6 +80,12 @@ public class Inventory {
 //
 //        return ObservableList<Model.Product>;
 //    }
+    
+     public static ObservableList<Product> getAllProducts() {
+
+        // Return entire ObservableList
+        return allProducts;
+    }
 
     
 }

@@ -9,7 +9,7 @@ package Model;
  *
  * @author naasirbush
  */
- public abstract class Part {
+ public /*abstract*/ class Part {
     
     
     // Private members

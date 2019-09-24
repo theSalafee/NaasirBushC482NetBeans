@@ -5,6 +5,9 @@
  */
 package View_Controller;
 
+import Model.Inventory;
+import Model.Part;
+import Model.Product;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,6 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 ///
 
@@ -46,13 +50,13 @@ public class MainScreenController implements Initializable {
     @FXML
     private Button addPartBtn;
     @FXML
-    private TableView<?> partsTable;
+    private TableView<Part> partsTable;
     @FXML
-    private TableColumn<?, ?> partID;
+    private TableColumn<Part, Integer> partID;
     @FXML
-    private TableColumn<?, ?> partName;
+    private TableColumn<Part, String> partName;
     @FXML
-    private TableColumn<?, ?> partInventory;
+    private TableColumn<Part, Integer> partInventory;
     @FXML
     private Button deleteProduct;
     @FXML
@@ -67,17 +71,17 @@ public class MainScreenController implements Initializable {
     @FXML
     private Button exitBtn;
     @FXML
-    private TableColumn<?, ?> partPricePerUnit;
+    private TableColumn<Product, Double> partPricePerUnit;
     @FXML
-    private TableView<?> productsTable;
+    private TableView<Product> productsTable;
     @FXML
-    private TableColumn<?, ?> productID;
+    private TableColumn<Product, Integer> productID;
     @FXML
-    private TableColumn<?, ?> productName;
+    private TableColumn<Product, String> productName;
     @FXML
-    private TableColumn<?, ?> productInventory;
+    private TableColumn<Product, Integer> productInventory;
     @FXML
-    private TableColumn<?, ?> productPricePerUnit;
+    private TableColumn<Product, Double> productPricePerUnit;
 
     /**
      * Initializes the controller class.
@@ -85,6 +89,18 @@ public class MainScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        partsTable.setItems(Inventory.getAllParts());
+        partID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        partName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        partInventory.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        partPricePerUnit.setCellValueFactory(new PropertyValueFactory<>("price"));
+        
+        productsTable.setItems(Inventory.getAllProducts());
+        productID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        productName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        productInventory.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        productPricePerUnit.setCellValueFactory(new PropertyValueFactory<>("price"));
+        
     }    
 
     @FXML
