@@ -5,6 +5,9 @@
  */
 package View_Controller;
 
+import Model.InhousePart;
+import Model.Inventory;
+import Model.Part;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -81,13 +85,6 @@ public class AddPartController implements Initializable {
         // testing my git commits
     }    
 
-    @FXML
-    private void outsourcedBtnHandler(ActionEvent event) {
-    }
-
-    @FXML
-    private void inHouseBtnHandler(ActionEvent event) {
-    }
 
     @FXML
     private void cancelHandler(ActionEvent event) throws IOException {
@@ -101,7 +98,66 @@ public class AddPartController implements Initializable {
     }
 
     @FXML
-    private void savePartHandler(ActionEvent event) {
+    private void savePartHandler(ActionEvent event) throws IOException {
+        
+        int id = Integer.parseInt(addPartID.getText());
+        String name = addPartName.getText();
+        double price = Double.parseDouble(addPartPrice.getText());
+        int inventory = Integer.parseInt(addPartinventory.getText());
+        String companyName = addCompanyName.getText();
+        int min = Integer.parseInt(addPartMin.getText());
+        int max = Integer.parseInt(addPartMax.getText());
+        int machineID = Integer.parseInt(addPartMachinID.getText());
+        boolean inhousePart;
+        boolean outSourcedPart;
+        
+       Inventory.addPart(new InhousePart(id, price, inventory, min, max, name, machineID));
+       
+        Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
+        Scene cancelPartScene = new Scene(cancelPartParent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.hide();
+        app_stage.setScene(cancelPartScene);
+        app_stage.show();  
+    }
+
+    @FXML
+    private void outsourcedBtnHandler(MouseEvent event) {
+        
+        //boolean outSourcedPart; 
+        addCompanyName.disableProperty().bind(outsourcedBtn.selectedProperty()); 
+        
+//        if (outsourcedBtn.isSelected()) {
+//            outSourcedPart = true;
+//            //addPartMachineIdLabel.setVisible(false);
+//            //addPartMachinID.setVisible(false);  
+//            addPartMachinID.setDisable(true);
+//            
+//        }else{
+//            outSourcedPart = false;
+//            addPartMachineIdLabel.setDisable(true);
+//            addPartMachinID.setDisable(true);    
+//        }
+    }
+
+    @FXML
+    private void inHouseBtnHandler(MouseEvent event) {
+        
+        //boolean inhousePart; 
+        addPartMachinID.disableProperty().bind(inHouseBtn.selectedProperty()); 
+        
+//        if (inHouseBtn.isSelected()) {
+//            inhousePart = true;
+////            addPartIDLabel.setVisible(false);
+////            addPartID.setVisible(false);
+//              addPartID.setDisable(true);
+//             
+//        }else{
+//            
+////            inhousePart = false;
+////            addPartIDLabel.setVisible(true);
+////            addPartID.setVisible(true);        
+//        }
     }
     
 }

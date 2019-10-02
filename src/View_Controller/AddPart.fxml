@@ -26,7 +26,7 @@
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect>
             </Label>
-            <RadioButton id="ourtsourcedPartBtn" fx:id="outsourcedBtn" layoutX="436.0" layoutY="19.0" mnemonicParsing="false" onAction="#outsourcedBtnHandler" text="Outsourced Part" textFill="WHITE">
+            <RadioButton id="ourtsourcedPartBtn" fx:id="outsourcedBtn" layoutX="436.0" layoutY="19.0" mnemonicParsing="false" onMouseClicked="#outsourcedBtnHandler" text="Outsourced Part" textFill="WHITE">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
@@ -34,7 +34,7 @@
                   <ToggleGroup fx:id="partToggle" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton id="inhousePartBtn" fx:id="inHouseBtn" layoutX="272.0" layoutY="20.0" mnemonicParsing="false" onAction="#inHouseBtnHandler" text="In-House Part" textFill="WHITE" toggleGroup="$partToggle">
+            <RadioButton id="inhousePartBtn" fx:id="inHouseBtn" layoutX="272.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#inHouseBtnHandler" text="In-House Part" textFill="WHITE" toggleGroup="$partToggle">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>

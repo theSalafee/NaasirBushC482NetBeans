@@ -5,6 +5,7 @@
  */
 package naasirbushc482;
 
+import Model.InhousePart;
 import Model.Inventory;
 import Model.Part;
 import Model.Product;
@@ -33,9 +34,13 @@ public class NaasirBushC482 extends Application {
      */
     public static void main(String[] args) {
         
-        Part part1 = new Part(1, 100.00, 99, 10, 100, "WD SSD");
-        Part part2 = new Part(2, 150.00, 50, 10, 200, "WD HDD");
-        Part part3 = new Part(3, 350.00, 20, 10, 200, "WD USB");
+        Part part1 = new InhousePart(1, 99.99, 100, 100, 99, "WD SSD", 100);
+        Part part2 = new InhousePart(2, 101.99, 50, 30, 10, "WD HDD", 50);
+        Part part3 = new InhousePart(3, 131.99, 70, 20, 110, "WD HDD", 510);
+
+        //Part part1 = new InhousePart(1, 100.00, 99, 10, "WD SSD", 100);
+        //Part part2 = new Part(2, 150.00, 50, 10, 200, "WD HDD");
+        //Part part3 = new Part(3, 350.00, 20, 10, 200, "WD USB");
         
         Product product1 = new Product(1, "Western D", 15.00, 12, 355, 79);
         Product product2 = new Product(2, "Northern D", 25.00, 13, 34, 719);
