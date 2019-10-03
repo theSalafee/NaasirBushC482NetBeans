@@ -18,6 +18,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -78,6 +80,8 @@ public class AddPartController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -111,53 +115,34 @@ public class AddPartController implements Initializable {
         boolean inhousePart;
         boolean outSourcedPart;
         
-       Inventory.addPart(new InhousePart(id, price, inventory, min, max, name, machineID));
-       
-        Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
-        Scene cancelPartScene = new Scene(cancelPartParent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.hide();
-        app_stage.setScene(cancelPartScene);
-        app_stage.show();  
+         if(min > max){
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText("Data Entry Error");
+            alert.setContentText("Min is greater than Max");
+            alert.showAndWait();
+            }else{
+                Inventory.addPart(new InhousePart(id, price, inventory, min, max, name, machineID));
+                Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
+                Scene cancelPartScene = new Scene(cancelPartParent);
+                Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                app_stage.hide();
+                app_stage.setScene(cancelPartScene);
+                app_stage.show();         
+         }      
     }
 
     @FXML
     private void outsourcedBtnHandler(MouseEvent event) {
         
-        //boolean outSourcedPart; 
         addCompanyName.disableProperty().bind(outsourcedBtn.selectedProperty()); 
-        
-//        if (outsourcedBtn.isSelected()) {
-//            outSourcedPart = true;
-//            //addPartMachineIdLabel.setVisible(false);
-//            //addPartMachinID.setVisible(false);  
-//            addPartMachinID.setDisable(true);
-//            
-//        }else{
-//            outSourcedPart = false;
-//            addPartMachineIdLabel.setDisable(true);
-//            addPartMachinID.setDisable(true);    
-//        }
     }
 
     @FXML
     private void inHouseBtnHandler(MouseEvent event) {
         
-        //boolean inhousePart; 
         addPartMachinID.disableProperty().bind(inHouseBtn.selectedProperty()); 
-        
-//        if (inHouseBtn.isSelected()) {
-//            inhousePart = true;
-////            addPartIDLabel.setVisible(false);
-////            addPartID.setVisible(false);
-//              addPartID.setDisable(true);
-//             
-//        }else{
-//            
-////            inhousePart = false;
-////            addPartIDLabel.setVisible(true);
-////            addPartID.setVisible(true);        
-//        }
+
     }
     
 }
