@@ -7,6 +7,7 @@ package View_Controller;
 
 import Model.InhousePart;
 import Model.Inventory;
+import Model.OutsourcedPart;
 import Model.Part;
 import java.io.IOException;
 import java.net.URL;
@@ -127,10 +128,14 @@ public class AddPartController implements Initializable {
         String name = addPartName.getText();
         double price = Double.parseDouble(addPartPrice.getText());
         int inventory = Integer.parseInt(addPartinventory.getText());
-        String companyName = addCompanyName.getText();
+        //String companyName = addCompanyName.getText();
         int min = Integer.parseInt(addPartMin.getText());
         int max = Integer.parseInt(addPartMax.getText());
-        int machineID = Integer.parseInt(addPartMachinID.getText());
+        
+        if(inHouseBtn.isSelected()){
+            int machineID = Integer.parseInt(addPartMachinID.getText());  
+        
+        
         
          if(min > max || inventory > max || inventory < min){
             Alert alert = new Alert(AlertType.INFORMATION);
@@ -148,7 +153,28 @@ public class AddPartController implements Initializable {
                 app_stage.hide();
                 app_stage.setScene(cancelPartScene);
                 app_stage.show();         
-         }      
+         } 
+        }else {
+              String companyName = addCompanyName.getText();
+              
+             if(min > max || inventory > max || inventory < min){
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText("Data Entry Error");
+            alert.setContentText("Min is greater than Max and/or Inventory is not between Min and Max");
+            alert.showAndWait();
+            }else{
+             
+             //possible move this into a method of its own called redirect()
+                Inventory.addPart(new OutsourcedPart(id, price, inventory, min, max, name, companyName));
+                Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
+                Scene cancelPartScene = new Scene(cancelPartParent);
+                Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                app_stage.hide();
+                app_stage.setScene(cancelPartScene);
+                app_stage.show(); 
+               }
+        }
     }
 
     @FXML

@@ -158,10 +158,11 @@ public class MainScreenController implements Initializable {
 
     @FXML
     private void exitHandler(ActionEvent event) throws IOException {
-//        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//        alert.setTitle("Quit?");
-//        alert.setHeaderText("Are you sure you want to quit?");
-//        alert.setContentText("Data will not be saved.");
-        System.exit(0);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Exit");
+            alert.setHeaderText("Closing Application");
+            alert.setContentText("Selecting OK will exit the program");
+            alert.showAndWait();
+            System.exit(0);
     }
 }
