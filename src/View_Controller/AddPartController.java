@@ -78,6 +78,19 @@ public class AddPartController implements Initializable {
     @FXML
     private ToggleGroup partToggle;
 
+    
+    public boolean search(int id){
+        for (Part part : Inventory.getAllParts()) {
+            if(part.getId() == id){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    
+    
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -87,6 +100,12 @@ public class AddPartController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         // testing my git commits
+        
+        if(search(22)){
+            System.out.println("Match");
+        }else{
+             System.out.println("No Match");
+        }
     }    
 
 
@@ -103,7 +122,7 @@ public class AddPartController implements Initializable {
 
     @FXML
     private void savePartHandler(ActionEvent event) throws IOException {
-        
+     
         int id = Integer.parseInt(addPartID.getText());
         String name = addPartName.getText();
         double price = Double.parseDouble(addPartPrice.getText());
@@ -112,16 +131,16 @@ public class AddPartController implements Initializable {
         int min = Integer.parseInt(addPartMin.getText());
         int max = Integer.parseInt(addPartMax.getText());
         int machineID = Integer.parseInt(addPartMachinID.getText());
-        boolean inhousePart;
-        boolean outSourcedPart;
         
-         if(min > max){
+         if(min > max || inventory > max || inventory < min){
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Error");
             alert.setHeaderText("Data Entry Error");
-            alert.setContentText("Min is greater than Max");
+            alert.setContentText("Min is greater than Max and/or Inventory is not between Min and Max");
             alert.showAndWait();
             }else{
+             
+             //possible move this into a method of its own called redirect()
                 Inventory.addPart(new InhousePart(id, price, inventory, min, max, name, machineID));
                 Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
                 Scene cancelPartScene = new Scene(cancelPartParent);
@@ -135,14 +154,14 @@ public class AddPartController implements Initializable {
     @FXML
     private void outsourcedBtnHandler(MouseEvent event) {
         
-        addCompanyName.disableProperty().bind(outsourcedBtn.selectedProperty()); 
+        addPartMachinID.disableProperty().bind(outsourcedBtn.selectedProperty()); 
+        
     }
 
     @FXML
     private void inHouseBtnHandler(MouseEvent event) {
         
-        addPartMachinID.disableProperty().bind(inHouseBtn.selectedProperty()); 
-
+         addCompanyName.disableProperty().bind(inHouseBtn.selectedProperty());
     }
     
 }
