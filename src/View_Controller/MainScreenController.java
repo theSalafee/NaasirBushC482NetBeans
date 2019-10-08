@@ -6,10 +6,12 @@
 package View_Controller;
 
 import Model.Inventory;
+import static Model.Inventory.deletePart;
 import Model.Part;
 import Model.Product;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,6 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 ///
@@ -109,6 +112,19 @@ public class MainScreenController implements Initializable {
 
     @FXML
     private void deletePartHandler(ActionEvent event) {
+        
+        Part part = partsTable.getSelectionModel().getSelectedItem();
+        if (part != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirm Deletion");
+            alert.setHeaderText("Are you sure you want to delete " + part.getName() + "?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                deletePart(part);
+            } else {
+                alert.close();
+            }
+        }
     }
 
     @FXML

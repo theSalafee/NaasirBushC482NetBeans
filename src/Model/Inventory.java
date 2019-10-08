@@ -36,19 +36,8 @@ public class Inventory {
 
     public static void deletePart(Part part) {
 
-            for(int i = 0; i < allParts.size(); i++){
-                if(allParts.get(i).equals(allParts)){
-                    allParts.remove(i);
-                }
-            }
-        
-//        for(int i = 0; i < part.size; i++){
-//            if(part.get(i).equals(part)){
-//                part.remove(i);
-//            }
-//        }
         // Access ObservableList allParts declared above and delete a part
-        //allParts.remove(part);
+        allParts.remove(part);
     }
 
     public static Part lookupPart(int partID) {
