@@ -5,6 +5,9 @@
  */
 package View_Controller;
 
+import Model.InhousePart;
+import Model.OutsourcedPart;
+import Model.Part;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -72,13 +75,35 @@ public class ModifyPartController implements Initializable {
     @FXML
     private ToggleGroup partToggle;
 
+    Part selectedPart;
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+
+    public void setPart(Part part){
+        selectedPart = part;
+        if(selectedPart instanceof InhousePart){
+            inHouseBtn.setSelected(true);
+            int machineId = ((InhousePart)selectedPart).getMachineID();
+            modifyPartMachinID.setText(String.valueOf(machineId));
+        }
+        
+         if(selectedPart instanceof OutsourcedPart){
+            inHouseBtn.setSelected(true);
+            String companyName = ((OutsourcedPart)selectedPart).getCompanyName();
+            modifyPartMachinID.setText(companyName);
+        }
+        
+        modifyPartID.setText(String.valueOf(selectedPart.getId()));
+        modifyPartName.setText(selectedPart.getName());
+        
+    }
 
     @FXML
     private void outsourcedBtnHandler(ActionEvent event) {

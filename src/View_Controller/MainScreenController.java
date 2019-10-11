@@ -88,6 +88,8 @@ public class MainScreenController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -130,11 +132,16 @@ public class MainScreenController implements Initializable {
     @FXML
     private void modifyPartHandler(ActionEvent event) throws IOException {
         
-          stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-          scene = FXMLLoader.load(getClass().getResource("/View_Controller/ModifyPart.fxml"));
-          stage.setScene(new Scene(scene));
-          stage.show();
-        
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/View_Controller/ModifyPart.fxml"));
+            loader.load();
+            ModifyPartController mpc = loader.getController();
+            mpc.setPart(partsTable.getSelectionModel().getSelectedItem());
+            
+            stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+            Parent scene = loader.getRoot();
+            stage.setScene(new Scene(scene));
+            stage.show(); 
     }
 
     @FXML

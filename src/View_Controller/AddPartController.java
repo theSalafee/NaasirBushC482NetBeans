@@ -134,9 +134,7 @@ public class AddPartController implements Initializable {
         
         if(inHouseBtn.isSelected()){
             int machineID = Integer.parseInt(addPartMachinID.getText());  
-        
-        
-        
+       
          if(min > max || inventory > max || inventory < min){
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Error");
