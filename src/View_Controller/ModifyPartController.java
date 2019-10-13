@@ -6,6 +6,7 @@
 package View_Controller;
 
 import Model.InhousePart;
+import Model.Inventory;
 import Model.OutsourcedPart;
 import Model.Part;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -76,8 +78,10 @@ public class ModifyPartController implements Initializable {
     private ToggleGroup partToggle;
 
     Part selectedPart;
+
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -86,23 +90,35 @@ public class ModifyPartController implements Initializable {
         // TODO
     }
 
-    public void setPart(Part part){
+    public void setPart(Part part) {
         selectedPart = part;
-        if(selectedPart instanceof InhousePart){
+        if (selectedPart instanceof InhousePart) {
             inHouseBtn.setSelected(true);
-            int machineId = ((InhousePart)selectedPart).getMachineID();
+            int machineId = ((InhousePart) selectedPart).getMachineID();
             modifyPartMachinID.setText(String.valueOf(machineId));
+            modifyPartID.setText(String.valueOf(selectedPart.getId()));
+            modifyPartName.setText(selectedPart.getName());
+            modifyPartMin.setText(String.valueOf(selectedPart.getMin()));
+            modifyPartMax.setText(String.valueOf(selectedPart.getMax()));
+            modifyPartinventory.setText(String.valueOf(selectedPart.getStock()));
+            modifyPartPrice.setText(String.valueOf(selectedPart.getPrice()));
+            modifyCompanyName.disableProperty().bind(inHouseBtn.selectedProperty());
         }
-        
-         if(selectedPart instanceof OutsourcedPart){
-            inHouseBtn.setSelected(true);
-            String companyName = ((OutsourcedPart)selectedPart).getCompanyName();
-            modifyPartMachinID.setText(companyName);
+
+        if (selectedPart instanceof OutsourcedPart) {
+            outsourcedBtn.setSelected(true);
+            String companyName = ((OutsourcedPart) selectedPart).getCompanyName();
+            //modifyPartMachinID.setText(companyName);
+            modifyPartMachinID.disableProperty().bind(outsourcedBtn.selectedProperty());
+            modifyPartID.setText(String.valueOf(selectedPart.getId()));
+            modifyPartName.setText(selectedPart.getName());
+            modifyPartMin.setText(String.valueOf(selectedPart.getMin()));
+            modifyPartMax.setText(String.valueOf(selectedPart.getMax()));
+            modifyPartinventory.setText(String.valueOf(selectedPart.getStock()));
+            modifyPartPrice.setText(String.valueOf(selectedPart.getPrice()));
+            modifyCompanyName.setText(selectedPart.getName());
+
         }
-        
-        modifyPartID.setText(String.valueOf(selectedPart.getId()));
-        modifyPartName.setText(selectedPart.getName());
-        
     }
 
     @FXML
@@ -115,7 +131,7 @@ public class ModifyPartController implements Initializable {
 
     @FXML
     private void cancelHandler(ActionEvent event) throws IOException {
-        
+
         Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
         Scene cancelPartScene = new Scene(cancelPartParent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -125,7 +141,59 @@ public class ModifyPartController implements Initializable {
     }
 
     @FXML
-    private void savePartHandler(ActionEvent event) {
+    private void savePartHandler(ActionEvent event) throws IOException {
+
+        int id = Integer.parseInt(modifyPartID.getText());
+        String name = modifyPartName.getText();
+        //String companyName =  modifyCompanyName.getText();
+        double price = Double.parseDouble(modifyPartPrice.getText());
+        int inventory = Integer.parseInt(modifyPartinventory.getText());
+        String companyName = modifyCompanyName.getText();
+        int min = Integer.parseInt(modifyPartMin.getText());
+        int max = Integer.parseInt(modifyPartMax.getText());
+
+        if (inHouseBtn.isSelected()) {
+            int machineID = Integer.parseInt(modifyPartMachinID.getText());
+
+            if (min > max || inventory > max || inventory < min) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Error");
+                alert.setHeaderText("Data Entry Error");
+                alert.setContentText("Min is greater than Max and/or Inventory is not between Min and Max");
+                alert.showAndWait();
+            } else {
+
+                //possible move this into a method of its own called redirect()
+                Inventory.addPart(new InhousePart(id, price, inventory, min, max, name, machineID));
+                Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
+                Scene cancelPartScene = new Scene(cancelPartParent);
+                Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                app_stage.hide();
+                app_stage.setScene(cancelPartScene);
+                app_stage.show();
+            }
+        } else {
+            companyName = modifyCompanyName.getText();
+
+            if (min > max || inventory > max || inventory < min) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Error");
+                alert.setHeaderText("Data Entry Error");
+                alert.setContentText("Min is greater than Max and/or Inventory is not between Min and Max");
+                alert.showAndWait();
+            } else {
+
+                //possible move this into a method of its own called redirect()
+                Inventory.addPart(new OutsourcedPart(id, price, inventory, min, max, name, companyName));
+                Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
+                Scene cancelPartScene = new Scene(cancelPartParent);
+                Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                app_stage.hide();
+                app_stage.setScene(cancelPartScene);
+                app_stage.show();
+            }
+        }
+
     }
-    
+
 }

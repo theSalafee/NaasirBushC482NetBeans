@@ -55,6 +55,9 @@ public class Inventory {
 //
 //        return;
 //    }
+    public static void updatePart(int index, Part part) {
+        allParts.set(index, part);
+    }
 
     public static ObservableList<Part> getAllParts() {
 
