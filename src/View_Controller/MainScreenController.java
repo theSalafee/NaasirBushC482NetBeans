@@ -17,7 +17,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -110,6 +109,13 @@ public class MainScreenController implements Initializable {
 
     @FXML
     private void searchHandler(ActionEvent event) {
+        
+        String searchData = searchPart.getText();
+        
+        for (Part p:Inventory.getAllParts()){
+            
+            if (p.getName().contains(searchData) || Integer.toString(p.getId()).equals(searchData))partsTable.getSelectionModel().select(p);
+        }    
     }
 
     @FXML

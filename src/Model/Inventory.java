@@ -55,9 +55,6 @@ public class Inventory {
 //
 //        return;
 //    }
-    public static void updatePart(int index, Part part) {
-        allParts.set(index, part);
-    }
 
     public static ObservableList<Part> getAllParts() {
 
@@ -74,10 +71,10 @@ public class Inventory {
          allProducts.add(product);;
     }
 
-//    public static lookupProduct(int productID) {
-//
-//        return Model.Product;
-//    }
+    public static Product lookupProduct(int productID) {
+
+        return allProducts.get(productID);
+    }
 
 //    public static lookupProduct(String productName) {
 //
