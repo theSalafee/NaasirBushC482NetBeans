@@ -70,6 +70,12 @@ public class Inventory {
 
          allProducts.add(product);;
     }
+    
+       public static void deleteProduct(Product product) {
+
+        // Access ObservableList allParts declared above and delete a part
+        allProducts.remove(product);
+    }
 
     public static Product lookupProduct(int productID) {
 

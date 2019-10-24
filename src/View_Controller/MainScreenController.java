@@ -7,6 +7,7 @@ package View_Controller;
 
 import Model.Inventory;
 import static Model.Inventory.deletePart;
+import static Model.Inventory.deleteProduct;
 import Model.Part;
 import Model.Product;
 import java.io.IOException;
@@ -172,6 +173,19 @@ public class MainScreenController implements Initializable {
 
     @FXML
     private void deleteProductHandler(ActionEvent event) {
+        
+           Product product = productsTable.getSelectionModel().getSelectedItem();
+        if (product != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirm Deletion");
+            alert.setHeaderText("Are you sure you want to delete " + product.getName() + "?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                deleteProduct(product);
+            } else {
+                alert.close();
+            }
+        }
     }
 
     @FXML
