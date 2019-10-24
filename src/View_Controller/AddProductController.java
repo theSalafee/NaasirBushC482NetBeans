@@ -5,6 +5,8 @@
  */
 package View_Controller;
 
+import Model.Inventory;
+import Model.Product;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -75,11 +77,22 @@ public class AddProductController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }   
+    
+      public boolean search(int id){
+        for (Product product : Inventory.getAllProducts()) {
+            if(product.getId() == id){
+                return true;
+            }
+        }
+        return false;
+    }
 
     @FXML
     private void cancelHandler(ActionEvent event) throws IOException {

@@ -151,7 +151,7 @@
                   <DropShadow height="10.0" radius="4.5" width="10.0" />
                </effect>
             </Label>
-            <Button fx:id="productSearchBtn" contentDisplay="RIGHT" layoutX="305.0" layoutY="27.0" mnemonicParsing="false" onAction="#searchHandler" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Search">
+            <Button fx:id="productSearchBtn" contentDisplay="RIGHT" layoutX="305.0" layoutY="27.0" mnemonicParsing="false" onAction="#searchHandlerProducts" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Search">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>

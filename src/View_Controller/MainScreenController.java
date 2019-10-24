@@ -117,7 +117,17 @@ public class MainScreenController implements Initializable {
             if (p.getName().contains(searchData) || Integer.toString(p.getId()).equals(searchData))partsTable.getSelectionModel().select(p);
         }    
     }
-
+    
+    @FXML
+    private void searchHandlerProducts(ActionEvent event){
+        
+            String searchDataProduct = searchProduct.getText();
+              
+            for (Product p:Inventory.getAllProducts()){
+            if (p.getName().contains(searchDataProduct) || Integer.toString(p.getId()).equals(searchDataProduct))productsTable.getSelectionModel().select(p);
+        }    
+    }
+    
     @FXML
     private void deletePartHandler(ActionEvent event) {
         
