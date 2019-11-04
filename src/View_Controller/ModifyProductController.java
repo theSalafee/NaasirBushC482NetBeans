@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -89,6 +90,12 @@ public class ModifyProductController implements Initializable {
     
     @FXML
     private void cancelProductHandler(ActionEvent event) throws IOException {
+        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Cancel");
+        alert.setContentText("Are you sure you want to cancel?");
+        alert.showAndWait();
         
         Parent cancelProductParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
         Scene cancelProductScene = new Scene(cancelProductParent);

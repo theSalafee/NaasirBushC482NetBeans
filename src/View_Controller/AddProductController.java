@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -74,6 +75,7 @@ public class AddProductController implements Initializable {
     private TableView<?> deleteProdTableView;
     @FXML
     private TableColumn<?, ?> productInventory;
+    
 
     /**
      * Initializes the controller class.
@@ -106,7 +108,33 @@ public class AddProductController implements Initializable {
     }
 
     @FXML
-    private void addHandler(ActionEvent event) {
+    private void addHandler(ActionEvent event) throws IOException {
+        
+         int id = Integer.parseInt(addProductID.getText());
+        String name = addProductName.getText();
+        double price = Double.parseDouble(addProductPrice.getText());
+        int inventory = Integer.parseInt(addProductInventory.getText());
+        //String companyName = addCompanyName.getText();
+        int min = Integer.parseInt(addProductMin.getText());
+        int max = Integer.parseInt(addProductMax.getText());
+        
+            if(min > max || inventory > max || inventory < min){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText("Data Entry Error");
+            alert.setContentText("Min is greater than Max and/or Inventory is not between Min and Max");
+            alert.showAndWait();
+            }else{
+                
+                //Product product = new Product();
+                Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
+                Scene cancelPartScene = new Scene(cancelPartParent);
+                Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                app_stage.hide();
+                app_stage.setScene(cancelPartScene);
+                app_stage.show(); 
+            
+            }
     }
 
     @FXML

@@ -102,16 +102,22 @@ public class AddPartController implements Initializable {
         // TODO
         // testing my git commits
         
-        if(search(22)){
-            System.out.println("Match");
-        }else{
-             System.out.println("No Match");
-        }
+//        if(search(22)){
+//            System.out.println("Match");
+//        }else{
+//             System.out.println("No Match");
+//        }
     }    
 
 
     @FXML
     private void cancelHandler(ActionEvent event) throws IOException {
+        
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Cancel");
+        alert.setContentText("Are you sure you want to cancel?");
+        alert.showAndWait();
         
         Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
         Scene cancelPartScene = new Scene(cancelPartParent);
