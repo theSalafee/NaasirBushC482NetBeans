@@ -131,6 +131,12 @@ public class ModifyPartController implements Initializable {
 
     @FXML
     private void cancelHandler(ActionEvent event) throws IOException {
+        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Cancel");
+        alert.setContentText("Are you sure you want to cancel?");
+        alert.showAndWait();
 
         Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
         Scene cancelPartScene = new Scene(cancelPartParent);
