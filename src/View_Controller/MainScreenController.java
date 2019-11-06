@@ -38,7 +38,7 @@ import javafx.stage.Stage;
  * @author naasirbush
  */
 public class MainScreenController implements Initializable {
-    
+
     Stage stage;
     Parent scene;
 
@@ -88,6 +88,7 @@ public class MainScreenController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -99,39 +100,43 @@ public class MainScreenController implements Initializable {
         partName.setCellValueFactory(new PropertyValueFactory<>("name"));
         partInventory.setCellValueFactory(new PropertyValueFactory<>("stock"));
         partPricePerUnit.setCellValueFactory(new PropertyValueFactory<>("price"));
-        
+
         productsTable.setItems(Inventory.getAllProducts());
         productID.setCellValueFactory(new PropertyValueFactory<>("id"));
         productName.setCellValueFactory(new PropertyValueFactory<>("name"));
         productInventory.setCellValueFactory(new PropertyValueFactory<>("stock"));
         productPricePerUnit.setCellValueFactory(new PropertyValueFactory<>("price"));
-        
-    }    
+
+    }
 
     @FXML
     private void searchHandler(ActionEvent event) {
-        
+
         String searchData = searchPart.getText();
-        
-        for (Part p:Inventory.getAllParts()){
-            
-            if (p.getName().contains(searchData) || Integer.toString(p.getId()).equals(searchData))partsTable.getSelectionModel().select(p);
-        }    
+
+        for (Part p : Inventory.getAllParts()) {
+
+            if (p.getName().contains(searchData) || Integer.toString(p.getId()).equals(searchData)) {
+                partsTable.getSelectionModel().select(p);
+            }
+        }
     }
-    
+
     @FXML
-    private void searchHandlerProducts(ActionEvent event){
-        
-            String searchDataProduct = searchProduct.getText();
-              
-            for (Product p:Inventory.getAllProducts()){
-            if (p.getName().contains(searchDataProduct) || Integer.toString(p.getId()).equals(searchDataProduct))productsTable.getSelectionModel().select(p);
-        }    
+    private void searchHandlerProducts(ActionEvent event) {
+
+        String searchDataProduct = searchProduct.getText();
+
+        for (Product p : Inventory.getAllProducts()) {
+            if (p.getName().contains(searchDataProduct) || Integer.toString(p.getId()).equals(searchDataProduct)) {
+                productsTable.getSelectionModel().select(p);
+            }
+        }
     }
-    
+
     @FXML
     private void deletePartHandler(ActionEvent event) {
-        
+
         Part part = partsTable.getSelectionModel().getSelectedItem();
         if (part != null) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -148,33 +153,33 @@ public class MainScreenController implements Initializable {
 
     @FXML
     private void modifyPartHandler(ActionEvent event) throws IOException {
-        
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/View_Controller/ModifyPart.fxml"));
-            loader.load();
-            ModifyPartController mpc = loader.getController();
-            mpc.setPart(partsTable.getSelectionModel().getSelectedItem(), partsTable.getSelectionModel().getSelectedIndex());
-            
-            stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-            Parent scene = loader.getRoot();
-            stage.setScene(new Scene(scene));
-            stage.show(); 
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/View_Controller/ModifyPart.fxml"));
+        loader.load();
+        ModifyPartController mpc = loader.getController();
+        mpc.setPart(partsTable.getSelectionModel().getSelectedItem(), partsTable.getSelectionModel().getSelectedIndex());
+
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        Parent scene = loader.getRoot();
+        stage.setScene(new Scene(scene));
+        stage.show();
     }
 
     @FXML
     private void addPartHandler(ActionEvent event) throws IOException {
-        
-          stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-          scene = FXMLLoader.load(getClass().getResource("/View_Controller/AddPart.fxml"));
-          stage.setScene(new Scene(scene));
-          stage.show();
-         
+
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/View_Controller/AddPart.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
+
     }
 
     @FXML
     private void deleteProductHandler(ActionEvent event) {
-        
-           Product product = productsTable.getSelectionModel().getSelectedItem();
+
+        Product product = productsTable.getSelectionModel().getSelectedItem();
         if (product != null) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirm Deletion");
@@ -190,32 +195,31 @@ public class MainScreenController implements Initializable {
 
     @FXML
     private void modifyProductHandler(ActionEvent event) throws IOException {
-        
-          stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-          scene = FXMLLoader.load(getClass().getResource("/View_Controller/ModifyProduct.fxml"));
-          stage.setScene(new Scene(scene));
-          stage.show();
-        
-    }    
-    
+
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/View_Controller/ModifyProduct.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
+
+    }
 
     @FXML
     private void addProductHandler(ActionEvent event) throws IOException {
-        
-          stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-          scene = FXMLLoader.load(getClass().getResource("/View_Controller/AddProduct.fxml"));
-          stage.setScene(new Scene(scene));
-          stage.show();
-        
+
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/View_Controller/AddProduct.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
+
     }
 
     @FXML
     private void exitHandler(ActionEvent event) throws IOException {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Exit");
-            alert.setHeaderText("Closing Application");
-            alert.setContentText("Selecting OK will exit the program");
-            alert.showAndWait();
-            System.exit(0);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Exit");
+        alert.setHeaderText("Closing Application");
+        alert.setContentText("Selecting OK will exit the program");
+        alert.showAndWait();
+        System.exit(0);
     }
 }

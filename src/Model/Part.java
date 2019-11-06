@@ -9,9 +9,8 @@ package Model;
  *
  * @author naasirbush
  */
- public abstract class Part {
-    
-    
+public abstract class Part {
+
     // Private members
     private int id;
     private double price;
@@ -46,7 +45,6 @@ package Model;
     public void setId(int id) {
         this.id = id;
     }
-
 
     public double getPrice() {
         return price;
@@ -83,5 +81,5 @@ package Model;
     public void setMax(int max) {
         this.max = max;
     }
-    
+
 }

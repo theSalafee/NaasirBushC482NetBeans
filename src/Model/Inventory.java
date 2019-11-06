@@ -13,8 +13,7 @@ import javafx.collections.ObservableList;
  * @author naasirbush
  */
 public class Inventory {
-    
-    
+
     // Private Members
     // ObservableList<> =  A list that allows "listeners" to track changes when they occur
     // FXCollections = A utility class that consists of static methods that are one-to-one copies of java.util.Collections methods
@@ -23,11 +22,9 @@ public class Inventory {
     private static ObservableList<Part> allParts = FXCollections.observableArrayList();
 
     // Model.Inventory Class Methods
-
     ///////////////////
     // Parts methods //
     ///////////////////
-
     public static void addPart(Part part) {
 
         // Access ObservableList allparts declared above and add a part
@@ -47,21 +44,19 @@ public class Inventory {
     }
 
     public static void updatePart(int index, Part part) {
-           allParts.set(index, part);    
+        allParts.set(index, part);
     }
 
 //    public static Model.Part lookupPart(String partName) {
 //
 //        return allParts.get(partName);
 //    }
-
 //    public void updatePart(int index, Part part) {
 //        
 //        //allParts.set(part.getId(), part);
 //         allParts.set(index, part);
 //
 //    }
-
     public static ObservableList<Part> getAllParts() {
 
         // Return entire ObservableList
@@ -71,13 +66,12 @@ public class Inventory {
     //////////////////////
     // Products Methods //
     /////////////////////
-
     public static void addProduct(Model.Product product) {
 
-         allProducts.add(product);;
+        allProducts.add(product);;
     }
-    
-       public static void deleteProduct(Product product) {
+
+    public static void deleteProduct(Product product) {
 
         // Access ObservableList allParts declared above and delete a part
         allProducts.remove(product);
@@ -92,12 +86,10 @@ public class Inventory {
 //
 //        return ObservableList<Model.Product>;
 //    }
-    
-     public static ObservableList<Product> getAllProducts() {
+    public static ObservableList<Product> getAllProducts() {
 
         // Return entire ObservableList
         return allProducts;
     }
 
-    
 }

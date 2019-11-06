@@ -173,6 +173,11 @@ public class ModifyPartController implements Initializable {
                 alert.showAndWait();
             } else {
 
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Confirm");
+                alert.setHeaderText("Modify Part");
+                alert.setContentText("Are you sure you want to modify this part?");
+                alert.showAndWait();
                 //possible move this into a method of its own called redirect()
                 Inventory.getAllParts().set(selectedIndex, new InhousePart(id, price, inventory, min, max, name, machineID));
                 Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
@@ -193,6 +198,11 @@ public class ModifyPartController implements Initializable {
                 alert.showAndWait();
             } else {
 
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Confirm");
+                alert.setHeaderText("Modify Part");
+                alert.setContentText("Are you sure you want to modify this part?");
+                alert.showAndWait();
                 //possible move this into a method of its own called redirect()
                 Inventory.getAllParts().set(selectedIndex, new OutsourcedPart(id, price, inventory, min, max, name, companyName));
                 Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));

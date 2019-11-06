@@ -20,7 +20,7 @@ import javafx.stage.Stage;
  * @author naasirbush
  */
 public class NaasirBushC482 extends Application {
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
@@ -33,28 +33,27 @@ public class NaasirBushC482 extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Part part1 = new InhousePart(1, 99.99, 100, 100, 99, "WD SSD", 100);
-        Part part2 = new InhousePart(2, 101.99, 50, 30, 10, "WD HDD", 50);
+
+        Part part1 = new InhousePart(1, 99.99, 10, 1, 99, "WD SSD", 100);
+        Part part2 = new InhousePart(2, 101.99, 50, 3, 100, "WD HDD", 50);
         Part part3 = new InhousePart(3, 131.99, 70, 20, 110, "WD HDD", 510);
 
         //Part part1 = new InhousePart(1, 100.00, 99, 10, "WD SSD", 100);
         //Part part2 = new Part(2, 150.00, 50, 10, 200, "WD HDD");
         //Part part3 = new Part(3, 350.00, 20, 10, 200, "WD USB");
-        
         Product product1 = new Product(1, "Western D", 15.00, 12, 355, 79);
         Product product2 = new Product(2, "Northern D", 25.00, 13, 34, 719);
         Product product3 = new Product(3, "Souther D", 35.00, 14, 334, 794);
-        
+
         Inventory.addPart(part1);
         Inventory.addPart(part2);
         Inventory.addPart(part3);
-        
+
         Inventory.addProduct(product1);
         Inventory.addProduct(product2);
         Inventory.addProduct(product3);
-        
+
         launch(args);
     }
-    
+
 }

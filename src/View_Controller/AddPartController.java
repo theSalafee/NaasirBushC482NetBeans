@@ -79,21 +79,18 @@ public class AddPartController implements Initializable {
     @FXML
     private ToggleGroup partToggle;
 
-    
-    public boolean search(int id){
+    public boolean search(int id) {
         for (Part part : Inventory.getAllParts()) {
-            if(part.getId() == id){
+            if (part.getId() == id) {
                 return true;
             }
         }
         return false;
     }
-    
-    
-    
-    
+
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -101,24 +98,23 @@ public class AddPartController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         // testing my git commits
-        
+
 //        if(search(22)){
 //            System.out.println("Match");
 //        }else{
 //             System.out.println("No Match");
 //        }
-    }    
-
+    }
 
     @FXML
     private void cancelHandler(ActionEvent event) throws IOException {
-        
+
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Confirmation");
         alert.setHeaderText("Cancel");
         alert.setContentText("Are you sure you want to cancel?");
         alert.showAndWait();
-        
+
         Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
         Scene cancelPartScene = new Scene(cancelPartParent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -129,7 +125,7 @@ public class AddPartController implements Initializable {
 
     @FXML
     private void savePartHandler(ActionEvent event) throws IOException {
-     
+
         int id = Integer.parseInt(addPartID.getText());
         String name = addPartName.getText();
         double price = Double.parseDouble(addPartPrice.getText());
@@ -137,61 +133,71 @@ public class AddPartController implements Initializable {
         //String companyName = addCompanyName.getText();
         int min = Integer.parseInt(addPartMin.getText());
         int max = Integer.parseInt(addPartMax.getText());
-        
-        if(inHouseBtn.isSelected()){
-            int machineID = Integer.parseInt(addPartMachinID.getText());  
-       
-         if(min > max || inventory > max || inventory < min){
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Error");
-            alert.setHeaderText("Data Entry Error");
-            alert.setContentText("Min is greater than Max and/or Inventory is not between Min and Max");
-            alert.showAndWait();
-            }else{
-             
-             //possible move this into a method of its own called redirect()
+
+        if (inHouseBtn.isSelected()) {
+            int machineID = Integer.parseInt(addPartMachinID.getText());
+
+            if (min > max || inventory > max || inventory < min) {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Error");
+                alert.setHeaderText("Data Entry Error");
+                alert.setContentText("Min is greater than Max and/or Inventory is not between Min and Max");
+                alert.showAndWait();
+            } else {
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Confirm");
+                alert.setHeaderText("Add Part");
+                alert.setContentText("Are you sure you want to add this part?");
+                alert.showAndWait();
+                //possible move this into a method of its own called redirect()
                 Inventory.addPart(new InhousePart(id, price, inventory, min, max, name, machineID));
                 Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
                 Scene cancelPartScene = new Scene(cancelPartParent);
                 Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 app_stage.hide();
                 app_stage.setScene(cancelPartScene);
-                app_stage.show();         
-         } 
-        }else {
-              String companyName = addCompanyName.getText();
-              
-             if(min > max || inventory > max || inventory < min){
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Error");
-            alert.setHeaderText("Data Entry Error");
-            alert.setContentText("Min is greater than Max and/or Inventory is not between Min and Max");
-            alert.showAndWait();
-            }else{
-             
-             //possible move this into a method of its own called redirect()
+                app_stage.show();
+            }
+        } else {
+            String companyName = addCompanyName.getText();
+
+            if (min > max || inventory > max || inventory < min) {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Error");
+                alert.setHeaderText("Data Entry Error");
+                alert.setContentText("Min is greater than Max and/or Inventory is not between Min and Max");
+                alert.showAndWait();
+            } else {
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Confirm");
+                alert.setHeaderText("Add Part");
+                alert.setContentText("Are you sure you want to add this part?");
+                alert.showAndWait();
+                //possible move this into a method of its own called redirect()
                 Inventory.addPart(new OutsourcedPart(id, price, inventory, min, max, name, companyName));
                 Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
                 Scene cancelPartScene = new Scene(cancelPartParent);
                 Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 app_stage.hide();
                 app_stage.setScene(cancelPartScene);
-                app_stage.show(); 
-               }
+                app_stage.show();
+            }
         }
     }
 
     @FXML
     private void outsourcedBtnHandler(MouseEvent event) {
-        
-        addPartMachinID.disableProperty().bind(outsourcedBtn.selectedProperty()); 
-        
+
+        addPartMachinID.disableProperty().bind(outsourcedBtn.selectedProperty());
+
     }
 
     @FXML
     private void inHouseBtnHandler(MouseEvent event) {
-        
-         addCompanyName.disableProperty().bind(inHouseBtn.selectedProperty());
+
+        addCompanyName.disableProperty().bind(inHouseBtn.selectedProperty());
     }
-    
+
 }
