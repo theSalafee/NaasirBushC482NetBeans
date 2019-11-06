@@ -153,7 +153,7 @@ public class MainScreenController implements Initializable {
             loader.setLocation(getClass().getResource("/View_Controller/ModifyPart.fxml"));
             loader.load();
             ModifyPartController mpc = loader.getController();
-            mpc.setPart(partsTable.getSelectionModel().getSelectedItem());
+            mpc.setPart(partsTable.getSelectionModel().getSelectedItem(), partsTable.getSelectionModel().getSelectedIndex());
             
             stage = (Stage)((Button)event.getSource()).getScene().getWindow();
             Parent scene = loader.getRoot();

@@ -78,6 +78,7 @@ public class ModifyPartController implements Initializable {
     private ToggleGroup partToggle;
 
     Part selectedPart;
+    int selectedIndex;
 
     /**
      * Initializes the controller class.
@@ -90,8 +91,11 @@ public class ModifyPartController implements Initializable {
         // TODO
     }
 
-    public void setPart(Part part) {
+    public void setPart(Part part, int partIndex) {
+        
         selectedPart = part;
+        selectedIndex = partIndex;
+        
         if (selectedPart instanceof InhousePart) {
             inHouseBtn.setSelected(true);
             int machineId = ((InhousePart) selectedPart).getMachineID();
@@ -148,8 +152,8 @@ public class ModifyPartController implements Initializable {
 
     @FXML
     private void savePartHandler(ActionEvent event) throws IOException {
-
-        int id = Integer.parseInt(modifyPartID.getText());
+        int id = Integer.parseInt(this.modifyPartID.getText());
+        //int id = Integer.parseInt(modifyPartID.getText());
         String name = modifyPartName.getText();
         //String companyName =  modifyCompanyName.getText();
         double price = Double.parseDouble(modifyPartPrice.getText());
@@ -170,7 +174,7 @@ public class ModifyPartController implements Initializable {
             } else {
 
                 //possible move this into a method of its own called redirect()
-                Inventory.addPart(new InhousePart(id, price, inventory, min, max, name, machineID));
+                Inventory.getAllParts().set(selectedIndex, new InhousePart(id, price, inventory, min, max, name, machineID));
                 Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
                 Scene cancelPartScene = new Scene(cancelPartParent);
                 Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -190,7 +194,7 @@ public class ModifyPartController implements Initializable {
             } else {
 
                 //possible move this into a method of its own called redirect()
-                Inventory.addPart(new OutsourcedPart(id, price, inventory, min, max, name, companyName));
+                Inventory.getAllParts().set(selectedIndex, new OutsourcedPart(id, price, inventory, min, max, name, companyName));
                 Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
                 Scene cancelPartScene = new Scene(cancelPartParent);
                 Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

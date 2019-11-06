@@ -46,14 +46,20 @@ public class Inventory {
         return allParts.get(partID);
     }
 
+    public static void updatePart(int index, Part part) {
+           allParts.set(index, part);    
+    }
+
 //    public static Model.Part lookupPart(String partName) {
 //
 //        return allParts.get(partName);
 //    }
 
-//    public void updatePart(int index, Model.Part part) {
+//    public void updatePart(int index, Part part) {
+//        
+//        //allParts.set(part.getId(), part);
+//         allParts.set(index, part);
 //
-//        return;
 //    }
 
     public static ObservableList<Part> getAllParts() {
