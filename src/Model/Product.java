@@ -88,6 +88,14 @@ public class Product {
     public void setMax(int max) {
         this.max = max;
     }
+    
+    public void addAssociatePart(Part part) {
+           this.associatedParts.add(part);
+    }
+    
+     public void deleteAssociatePart(Part part) {
+           this.associatedParts.remove(part);
+    }
 
     public static ObservableList<Part> getAllAssociatedParts() {
 

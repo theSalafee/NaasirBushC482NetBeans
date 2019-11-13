@@ -92,12 +92,12 @@
       </AnchorPane>
       <AnchorPane layoutX="26.0" layoutY="350.0" prefHeight="324.0" prefWidth="922.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10px;">
          <children>
-            <TableView fx:id="addProductTableView" layoutX="14.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0">
+            <TableView fx:id="partsTable" layoutX="14.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0">
               <columns>
-                <TableColumn fx:id="productID" prefWidth="75.0" text="Product Id" />
-                <TableColumn fx:id="productName" prefWidth="172.0" text="Product Name" />
-                  <TableColumn fx:id="productName" prefWidth="84.0" text="Inventory " />
-                  <TableColumn fx:id="productPricePerUnit" prefWidth="90.0" text="Price" />
+                <TableColumn fx:id="partID" prefWidth="75.0" text="Part Id" />
+                <TableColumn fx:id="partName" prefWidth="172.0" text="Part Name" />
+                  <TableColumn fx:id="partInventory" prefWidth="84.0" text="Inventory " />
+                  <TableColumn fx:id="partPricePerUnit" prefWidth="90.0" text="Price" />
               </columns>
                <effect>
                   <DropShadow height="10.0" radius="4.5" width="10.0" />
@@ -108,12 +108,12 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <TableView fx:id="deleteProdTableView" layoutX="482.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0">
+            <TableView fx:id="prodPartTable" layoutX="482.0" layoutY="19.0" prefHeight="228.0" prefWidth="422.0">
                <columns>
-                  <TableColumn fx:id="productID" prefWidth="82.0" text="Product Id" />
-                  <TableColumn fx:id="productName" prefWidth="175.0" text="Product Name" />
-                  <TableColumn fx:id="productInventory" prefWidth="81.0" text="Inventory " />
-                  <TableColumn fx:id="productPricePerUnit" prefWidth="82.0" text="Price" />
+                  <TableColumn fx:id="prodPartID" prefWidth="82.0" text="Part Id" />
+                  <TableColumn fx:id="prodPartName" prefWidth="175.0" text="Part Name" />
+                  <TableColumn fx:id="prodPartInventory" prefWidth="81.0" text="Inventory " />
+                  <TableColumn fx:id="prodPartPricePerUnit" prefWidth="82.0" text="Price" />
                </columns>
                <effect>
                   <DropShadow height="10.0" radius="4.5" width="10.0" />
