@@ -16,7 +16,7 @@ public class Product {
     
     
     // ObservableList
-    private static ObservableList<Part> associatedParts = FXCollections.observableArrayList();
+    private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
 
     // Private members
     private int id;
@@ -97,11 +97,10 @@ public class Product {
            this.associatedParts.remove(part);
     }
 
-    public static ObservableList<Part> getAllAssociatedParts() {
+    public ObservableList<Part> getAllAssociatedParts() {
 
-        ObservableList<Part> completePartList = getAllAssociatedParts();
 
-        return completePartList;
+        return associatedParts;
     }
     
 }

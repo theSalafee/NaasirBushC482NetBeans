@@ -33,6 +33,7 @@ import javafx.stage.Stage;
  * @author naasirbush
  */
 public class AddProductController implements Initializable {
+    Product product;
 
     @FXML
     private Button cancelBtn;
@@ -75,15 +76,15 @@ public class AddProductController implements Initializable {
     @FXML
     private TableColumn<Part, Double> partPricePerUnit;
     @FXML
-    private TableView<?> prodPartTable;
+    private TableView<Part> prodPartTable;
     @FXML
-    private TableColumn<?, ?> prodPartID;
+    private TableColumn<Part, Integer> prodPartID;
     @FXML
-    private TableColumn<?, ?> prodPartName;
+    private TableColumn<Part, String> prodPartName;
     @FXML
-    private TableColumn<?, ?> prodPartInventory;
+    private TableColumn<Part, Integer> prodPartInventory;
     @FXML
-    private TableColumn<?, ?> prodPartPricePerUnit;
+    private TableColumn<Part, Double> prodPartPricePerUnit;
     @FXML
     private TableView<Part> partsTable;
 
@@ -101,6 +102,16 @@ public class AddProductController implements Initializable {
         partName.setCellValueFactory(new PropertyValueFactory<>("name"));
         partInventory.setCellValueFactory(new PropertyValueFactory<>("stock"));
         partPricePerUnit.setCellValueFactory(new PropertyValueFactory<>("price"));
+        
+        product = new Product(0, null, 0.0, 0, 0, 0);
+        
+        prodPartTable.setItems(product.getAllAssociatedParts());
+        prodPartID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        prodPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        prodPartInventory.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        prodPartPricePerUnit.setCellValueFactory(new PropertyValueFactory<>("price"));
+        
+        
     }
 
     public boolean search(int id) {
@@ -131,6 +142,7 @@ public class AddProductController implements Initializable {
 
     @FXML
     private void addHandler(ActionEvent event) throws IOException {
+        product.addAssociatePart(partsTable.getSelectionModel().getSelectedItem());
 
     }
 
@@ -162,7 +174,14 @@ public class AddProductController implements Initializable {
             alert.setHeaderText("Add Product");
             alert.setContentText("Are you sure you want to add this product?");
             alert.showAndWait();
-            Inventory.addProduct(new Product(id, name, price, inventory, min, max));
+            product.setId(id);
+            product.setName(name);
+            product.setPrice(price);
+            product.setMin(min);
+            product.setMax(max);
+            
+            
+            Inventory.addProduct(product);
             Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
             Scene cancelPartScene = new Scene(cancelPartParent);
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
