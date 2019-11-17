@@ -6,10 +6,12 @@
 package View_Controller;
 
 import Model.Inventory;
+import static Model.Inventory.deletePart;
 import Model.Part;
 import Model.Product;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -147,7 +150,15 @@ public class AddProductController implements Initializable {
     }
 
     @FXML
-    private void deleteHandler(ActionEvent event) {
+    private void deleteHandler(ActionEvent event) { 
+        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Disassociate Part");
+        alert.setHeaderText("Confirm");
+        alert.setContentText("Are you sure you want to disassociate this part from the product?");
+        alert.showAndWait();
+        
+        product.deleteAssociatePart(prodPartTable.getSelectionModel().getSelectedItem());
     }
 
     @FXML
