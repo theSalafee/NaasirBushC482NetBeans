@@ -5,6 +5,9 @@
  */
 package View_Controller;
 
+import Model.Inventory;
+import Model.Part;
+import Model.Product;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -29,9 +33,10 @@ import javafx.stage.Stage;
  * @author naasirbush
  */
 public class ModifyProductController implements Initializable {
+     Product product;
 
     @FXML
-    private TextField addPartPrice;
+    private TextField modifyProductPrice;
     @FXML
     private Button cancelBtn;
     @FXML
@@ -61,32 +66,65 @@ public class ModifyProductController implements Initializable {
     @FXML
     private Label searchProductLabel;
     @FXML
-    private TableView<?> addProdTableView;
-    @FXML
-    private TableColumn<?, ?> productID;
-    @FXML
-    private TableColumn<?, ?> productName;
-    @FXML
-    private TableColumn<?, ?> productInventory;
-    @FXML
-    private TableColumn<?, ?> productPricePerUnit;
-    @FXML
-    private TableView<?> deleteProdTableView;
-    @FXML
     private Button addProductBtn;
     @FXML
     private Button deleteBtn;
     @FXML
     private Button saveBtn;
+     @FXML
+    private TableColumn<Part, Integer> partID;
+     @FXML
+    private TableColumn<Part, String> partName;
+     @FXML
+    private TableColumn<Part, Integer> partInventory;
+    @FXML
+    private TableColumn<Part, Double> partPricePerUnit;
+    @FXML
+    private TableView<Part> prodPartTable;
+    @FXML
+    private TableColumn<Part, Integer> prodPartID;
+    @FXML
+    private TableColumn<Part, String> prodPartName;
+    @FXML
+    private TableColumn<Part, Integer> prodPartInventory;
+    @FXML
+    private TableColumn<Part, Double> prodPartPricePerUnit;
+    @FXML
+    private TableView<Part> partsTable;
 
+    Product selectedProduct;
+    int selectedIndex;
+    
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        partsTable.setItems(Inventory.getAllParts());
+        partsTable.setItems(Inventory.getAllParts());
+        partID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        partName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        partInventory.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        partPricePerUnit.setCellValueFactory(new PropertyValueFactory<>("price"));
         
     } 
+    
+    public void setProduct(Product product, int productIndex) {
+        
+        selectedProduct = product;
+        selectedIndex = productIndex;
+        
+        modifyProductID.setText(String.valueOf(selectedProduct.getId()));
+        modifyProductName.setText(selectedProduct.getName());
+        modifyProductInventory.setText(String.valueOf(selectedProduct.getStock()));
+        modifyProductPrice.setText(String.valueOf(selectedProduct.getPrice()));
+        modifyProductMin.setText(String.valueOf(selectedProduct.getMin()));
+        modifyProductMax.setText(String.valueOf(selectedProduct.getMax()));
+        
+    }
     
     @FXML
     private void cancelProductHandler(ActionEvent event) throws IOException {
