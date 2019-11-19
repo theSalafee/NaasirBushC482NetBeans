@@ -91,7 +91,7 @@ public class ModifyProductController implements Initializable {
     private TableColumn<Part, Double> prodPartPricePerUnit;
     @FXML
     private TableView<Part> partsTable;
-
+  
     Product selectedProduct;
     int selectedIndex;
     
@@ -104,11 +104,20 @@ public class ModifyProductController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         partsTable.setItems(Inventory.getAllParts());
-        partsTable.setItems(Inventory.getAllParts());
         partID.setCellValueFactory(new PropertyValueFactory<>("id"));
         partName.setCellValueFactory(new PropertyValueFactory<>("name"));
         partInventory.setCellValueFactory(new PropertyValueFactory<>("stock"));
         partPricePerUnit.setCellValueFactory(new PropertyValueFactory<>("price"));
+        
+        //prodPartTable.setItems();
+        prodPartID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        prodPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        prodPartInventory.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        prodPartPricePerUnit.setCellValueFactory(new PropertyValueFactory<>("price"));
+        
+       
+        
+        
         
     } 
     
