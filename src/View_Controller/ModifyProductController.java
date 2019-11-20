@@ -125,7 +125,7 @@ public class ModifyProductController implements Initializable {
         
         selectedProduct = product;
         selectedIndex = productIndex;
-        
+        prodPartTable.setItems(selectedProduct.getAllAssociatedParts());
         modifyProductID.setText(String.valueOf(selectedProduct.getId()));
         modifyProductName.setText(selectedProduct.getName());
         modifyProductInventory.setText(String.valueOf(selectedProduct.getStock()));
@@ -155,6 +155,7 @@ public class ModifyProductController implements Initializable {
 
     @FXML
     private void addProductHandler(ActionEvent event) {
+         selectedProduct.addAssociatePart(partsTable.getSelectionModel().getSelectedItem());
     }
 
     @FXML

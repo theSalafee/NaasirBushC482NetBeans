@@ -18,10 +18,10 @@ public abstract class Part {
     private int min;
     private int max;
     private String name;
-
+    static int numParts;
     // Class Constructor
     public Part(int id, double price, int stock, int min, int max, String name) {
-        this.id = id;
+        this.id = ++numParts;
         this.price = price;
         this.stock = stock;
         this.min = min;
