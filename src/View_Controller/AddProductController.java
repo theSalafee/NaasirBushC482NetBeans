@@ -90,6 +90,10 @@ public class AddProductController implements Initializable {
     private TableColumn<Part, Double> prodPartPricePerUnit;
     @FXML
     private TableView<Part> partsTable;
+    @FXML
+    private Button searchBtn;
+    @FXML
+    private TextField productSearch;
 
     /**
      * Initializes the controller class.
@@ -117,14 +121,14 @@ public class AddProductController implements Initializable {
         
     }
 
-    public boolean search(int id) {
-        for (Product product : Inventory.getAllProducts()) {
-            if (product.getId() == id) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public boolean search(int id) {
+//        for (Product product : Inventory.getAllProducts()) {
+//            if (product.getId() == id) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
     @FXML
     private void cancelHandler(ActionEvent event) throws IOException {
@@ -201,6 +205,19 @@ public class AddProductController implements Initializable {
             app_stage.setScene(cancelPartScene);
             app_stage.show();
 
+        }
+    }
+
+       @FXML
+    private void searchHandler(ActionEvent event) {
+
+        String searchData = productSearch.getText();
+
+        for (Part p : Inventory.getAllParts()) {
+
+            if (p.getName().contains(searchData) || Integer.toString(p.getId()).equals(searchData)) {
+                partsTable.getSelectionModel().select(p);
+            }
         }
     }
 

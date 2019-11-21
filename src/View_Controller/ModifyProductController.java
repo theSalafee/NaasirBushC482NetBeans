@@ -64,8 +64,6 @@ public class ModifyProductController implements Initializable {
     @FXML
     private TextField productSearch;
     @FXML
-    private Label searchProductLabel;
-    @FXML
     private Button addProductBtn;
     @FXML
     private Button deleteBtn;
@@ -94,6 +92,8 @@ public class ModifyProductController implements Initializable {
   
     Product selectedProduct;
     int selectedIndex;
+    @FXML
+    private Button searchBtn;
     
     /**
      * Initializes the controller class.
@@ -116,6 +116,15 @@ public class ModifyProductController implements Initializable {
         prodPartPricePerUnit.setCellValueFactory(new PropertyValueFactory<>("price"));   
         
     } 
+    
+//       public boolean search(int id) {
+//        for (Product product : Inventory.getAllProducts()) {
+//            if (product.getId() == id) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
     
     public void setProduct(Product product, int productIndex) {
         
@@ -206,6 +215,19 @@ public class ModifyProductController implements Initializable {
         
     }   
 }
+
+    @FXML
+    private void searchHandler(ActionEvent event) {
+
+        String searchData = productSearch.getText();
+
+        for (Part p : Inventory.getAllParts()) {
+
+            if (p.getName().contains(searchData) || Integer.toString(p.getId()).equals(searchData)) {
+                partsTable.getSelectionModel().select(p);
+            }
+        }
+    }
     
     
 }

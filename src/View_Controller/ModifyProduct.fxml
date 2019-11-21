@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -140,10 +141,16 @@
          </effect>
       </AnchorPane>
       <TextField fx:id="productSearch" layoutX="779.0" layoutY="89.0" />
-      <Label fx:id="searchProductLabel" layoutX="712.0" layoutY="94.0" text="Search">
+      <Button id="searchBtn" fx:id="searchBtn" contentDisplay="RIGHT" layoutX="687.0" layoutY="86.0" mnemonicParsing="false" onAction="#searchHandler" style="-fx-background-color: #c3fdff; -fx-border-radius: 5px;" text="Search">
          <font>
-            <Font size="18.0" />
+            <Font name="Arial" size="18.0" />
          </font>
-      </Label>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow color="#0000004c" />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>
