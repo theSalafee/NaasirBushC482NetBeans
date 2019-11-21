@@ -43,7 +43,7 @@
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="modifyPartID" layoutX="219.0" layoutY="39.0">
+            <TextField fx:id="modifyPartID" disable="true" layoutX="219.0" layoutY="39.0" opacity="0.08">
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect>

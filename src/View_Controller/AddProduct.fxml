@@ -50,7 +50,7 @@
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="addProductID" layoutX="110.0" layoutY="35.0">
+            <TextField fx:id="addProductID" disable="true" layoutX="110.0" layoutY="35.0" opacity="0.08" text="1">
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect>

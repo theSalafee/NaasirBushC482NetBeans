@@ -87,7 +87,7 @@
             <DropShadow height="5.0" radius="2.0" width="5.0" />
          </effect>
       </Button>
-      <TextField fx:id="addPartID" layoutX="270.0" layoutY="128.0">
+      <TextField fx:id="addPartID" disable="true" editable="false" layoutX="270.0" layoutY="128.0" opacity="0.08" text="1">
          <effect>
             <DropShadow height="5.0" radius="2.0" width="5.0" />
          </effect>
