@@ -113,11 +113,7 @@ public class ModifyProductController implements Initializable {
         prodPartID.setCellValueFactory(new PropertyValueFactory<>("id"));
         prodPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
         prodPartInventory.setCellValueFactory(new PropertyValueFactory<>("stock"));
-        prodPartPricePerUnit.setCellValueFactory(new PropertyValueFactory<>("price"));
-        
-       
-        
-        
+        prodPartPricePerUnit.setCellValueFactory(new PropertyValueFactory<>("price"));   
         
     } 
     

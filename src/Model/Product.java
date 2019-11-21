@@ -25,10 +25,11 @@ public class Product {
     private int stock;
     private int min;
     private int max;
+    private static int numProduct;
 
     // Constructor
     public Product(int id, String name, double price, int stock, int min, int max) {
-        this.id = id;
+        this.id = ++numProduct;
         this.name = name;
         this.price = price;
         this.stock = stock;

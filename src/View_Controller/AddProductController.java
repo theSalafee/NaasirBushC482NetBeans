@@ -185,7 +185,7 @@ public class AddProductController implements Initializable {
             alert.setHeaderText("Add Product");
             alert.setContentText("Are you sure you want to add this product?");
             alert.showAndWait();
-            product.setId(id);
+            //product.setId(id);
             product.setName(name);
             product.setPrice(price);
             product.setMin(min);
