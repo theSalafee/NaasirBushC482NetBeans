@@ -188,12 +188,6 @@ public class ModifyProductController implements Initializable {
             alert.setHeaderText("Add Product");
             alert.setContentText("Are you sure you want to add this product?");
             alert.showAndWait();
-            //product.setId(id);
-//            product.setName(name);
-//            product.setPrice(price);
-//            product.setMin(min);
-//            product.setMax(max);
-//            product.setStock(inventory);
             
             selectedProduct.setName(name);
             selectedProduct.setPrice(price);

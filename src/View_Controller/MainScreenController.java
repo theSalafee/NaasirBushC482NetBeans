@@ -70,6 +70,7 @@ public class MainScreenController implements Initializable {
     private Button productSearchBtn;
     @FXML
     private TextField searchProduct;
+    @FXML
     private Object FXMLoader;
     @FXML
     private Button exitBtn;
@@ -195,11 +196,6 @@ public class MainScreenController implements Initializable {
 
     @FXML
     private void modifyProductHandler(ActionEvent event) throws IOException {
-
-//        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-//        scene = FXMLLoader.load(getClass().getResource("/View_Controller/ModifyProduct.fxml"));
-//        stage.setScene(new Scene(scene));
-//        stage.show();
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/View_Controller/ModifyProduct.fxml"));
