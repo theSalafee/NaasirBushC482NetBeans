@@ -156,6 +156,13 @@ public class ModifyProductController implements Initializable {
 
     @FXML
     private void deleteProductHandler(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Disassociate Part");
+        alert.setHeaderText("Confirm");
+        alert.setContentText("Are you sure you want to disassociate this part from the product?");
+        alert.showAndWait();
+        
+        selectedProduct.deleteAssociatePart(prodPartTable.getSelectionModel().getSelectedItem());
     }
 
     @FXML
