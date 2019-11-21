@@ -179,7 +179,9 @@ public class ModifyPartController implements Initializable {
                 alert.setContentText("Are you sure you want to modify this part?");
                 alert.showAndWait();
                 //possible move this into a method of its own called redirect()
-                Inventory.getAllParts().set(selectedIndex, new InhousePart(id, price, inventory, min, max, name, machineID));
+                InhousePart newPart = new InhousePart(id, price, inventory, min, max, name, machineID);
+                newPart.setId(selectedPart.getId());
+                Inventory.getAllParts().set(selectedIndex, newPart );
                 Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
                 Scene cancelPartScene = new Scene(cancelPartParent);
                 Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -204,7 +206,9 @@ public class ModifyPartController implements Initializable {
                 alert.setContentText("Are you sure you want to modify this part?");
                 alert.showAndWait();
                 //possible move this into a method of its own called redirect()
-                Inventory.getAllParts().set(selectedIndex, new OutsourcedPart(id, price, inventory, min, max, name, companyName));
+                OutsourcedPart newPart = new OutsourcedPart(id, price, inventory, min, max, name, companyName);
+                newPart.setId(selectedPart.getId());
+                Inventory.getAllParts().set(selectedIndex, newPart);
                 Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
                 Scene cancelPartScene = new Scene(cancelPartParent);
                 Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

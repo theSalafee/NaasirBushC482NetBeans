@@ -131,6 +131,7 @@ public class AddPartController implements Initializable {
         double price = Double.parseDouble(addPartPrice.getText());
         int inventory = Integer.parseInt(addPartinventory.getText());
         //String companyName = addCompanyName.getText();
+        String x = addPartMin.getText();
         int min = Integer.parseInt(addPartMin.getText());
         int max = Integer.parseInt(addPartMax.getText());
 

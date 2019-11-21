@@ -166,9 +166,52 @@ public class ModifyProductController implements Initializable {
     }
 
     @FXML
-    private void saveProductHandler(ActionEvent event) {
-    }
-    
+    private void saveProductHandler(ActionEvent event) throws IOException {
+        int id = Integer.parseInt(modifyProductID.getText());
+        String name = modifyProductName.getText();
+        double price = Double.parseDouble(modifyProductPrice.getText());
+        int inventory = Integer.parseInt(modifyProductInventory.getText());
+        //String companyName = addCompanyName.getText();
+        int min = Integer.parseInt(modifyProductMin.getText());
+        int max = Integer.parseInt(modifyProductMax.getText());
+
+        if (min > max || inventory > max || inventory < min) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText("Data Entry Error");
+            alert.setContentText("Min is greater than Max and/or Inventory is not between Min and Max");
+            alert.showAndWait();
+        } else {
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Confirm");
+            alert.setHeaderText("Add Product");
+            alert.setContentText("Are you sure you want to add this product?");
+            alert.showAndWait();
+            //product.setId(id);
+//            product.setName(name);
+//            product.setPrice(price);
+//            product.setMin(min);
+//            product.setMax(max);
+//            product.setStock(inventory);
+            
+            selectedProduct.setName(name);
+            selectedProduct.setPrice(price);
+            selectedProduct.setMin(min);
+            selectedProduct.setMax(max);
+            selectedProduct.setStock(inventory);
+            
+            
+            //Inventory.addProduct(product);
+            Parent cancelPartParent = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
+            Scene cancelPartScene = new Scene(cancelPartParent);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.hide();
+            app_stage.setScene(cancelPartScene);
+            app_stage.show();
+        
+    }   
+}
     
     
 }
