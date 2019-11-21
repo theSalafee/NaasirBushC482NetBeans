@@ -190,6 +190,7 @@ public class AddProductController implements Initializable {
             product.setPrice(price);
             product.setMin(min);
             product.setMax(max);
+            product.setStock(inventory);
             
             
             Inventory.addProduct(product);
