@@ -97,13 +97,6 @@ public class AddPartController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        // testing my git commits
-
-//        if(search(22)){
-//            System.out.println("Match");
-//        }else{
-//             System.out.println("No Match");
-//        }
     }
 
     @FXML
@@ -130,7 +123,6 @@ public class AddPartController implements Initializable {
         String name = addPartName.getText();
         double price = Double.parseDouble(addPartPrice.getText());
         int inventory = Integer.parseInt(addPartinventory.getText());
-        //String companyName = addCompanyName.getText();
         String x = addPartMin.getText();
         int min = Integer.parseInt(addPartMin.getText());
         int max = Integer.parseInt(addPartMax.getText());

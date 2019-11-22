@@ -117,15 +117,6 @@ public class ModifyProductController implements Initializable {
         
     } 
     
-//       public boolean search(int id) {
-//        for (Product product : Inventory.getAllProducts()) {
-//            if (product.getId() == id) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-    
     public void setProduct(Product product, int productIndex) {
         
         selectedProduct = product;

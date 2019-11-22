@@ -6,12 +6,10 @@
 package View_Controller;
 
 import Model.Inventory;
-import static Model.Inventory.deletePart;
 import Model.Part;
 import Model.Product;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +20,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -120,15 +117,6 @@ public class AddProductController implements Initializable {
         
         
     }
-
-//    public boolean search(int id) {
-//        for (Product product : Inventory.getAllProducts()) {
-//            if (product.getId() == id) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 
     @FXML
     private void cancelHandler(ActionEvent event) throws IOException {

@@ -47,16 +47,6 @@ public class Inventory {
         allParts.set(index, part);
     }
 
-//    public static Model.Part lookupPart(String partName) {
-//
-//        return allParts.get(partName);
-//    }
-//    public void updatePart(int index, Part part) {
-//        
-//        //allParts.set(part.getId(), part);
-//         allParts.set(index, part);
-//
-//    }
     public static ObservableList<Part> getAllParts() {
 
         // Return entire ObservableList
